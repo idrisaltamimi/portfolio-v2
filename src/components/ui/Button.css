@@ -1,0 +1,43 @@
+.button {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  border: 0;
+  border-radius: 6px 12px;
+  transition: background-color 250ms linear;
+  color: var(--clr-white);
+}
+
+.button[data-color='light'] {
+  background-color: var(--clr-accent);
+}
+
+.button[data-color='light']:hover {
+  background-color: var(--clr-accentHover);
+}
+
+.button[data-color='dark'] {
+  background-color: var(--clr-accentDark);
+}
+
+.button[data-color='dark']:hover {
+  background-color: var(--clr-accentDarkHover);
+}
+
+.button[data-color='outlined'] {
+  color: var(--clr-dark);
+  border: 1px solid var(--clr-dark);
+  background-color: transparent;
+}
+
+.button[data-color='outlined']:hover {
+  background-color: rgba(255, 255, 255, .8);
+}
+
+.button[data-size='large'] {
+  padding: .8em 1.8em;
+}
+
+.button[data-size='small'] {
+  padding: .4em 1.1em;
+}

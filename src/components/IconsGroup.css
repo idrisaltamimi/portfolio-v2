@@ -1,0 +1,58 @@
+.svg-container-home {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, #fcfcfc46, #ffffff30 66%, #9d9d9d89 100%);
+  box-shadow: 0 2px 10px 0 #9d9d9d89;
+  transform: scale(1.2);
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: space-around;
+  justify-content: center;
+  column-gap: 100px;
+  overflow: hidden;
+}
+
+.svg-home {
+  width: 80px;
+}
+
+.svg-home:nth-child(1) {
+  transform: rotateY(32deg) rotateX(335deg) rotateZ(20deg);
+}
+
+.svg-home:nth-child(2) {
+  transform: rotateX(335deg) translateY(-30px);
+}
+
+.svg-home:nth-child(3) {
+  transform: rotateY(-32deg) rotateX(335deg) rotateZ(-20deg);
+}
+
+.svg-home:nth-child(4) {
+  transform: rotateY(-40deg) rotateZ(-2deg) translateX(-30px);
+}
+
+.svg-home:nth-child(5) {
+  width: 100px;
+  transform: scale(1.6);
+}
+
+.svg-home:nth-child(6) {
+  transform: rotateY(35deg) rotateZ(5deg) translateX(30px);
+}
+
+.svg-home:nth-child(7) {
+  transform: rotateY(323deg) rotateX(318deg) rotateZ(355deg) scale(1.4) translateX(16px);
+}
+
+.svg-home:nth-child(8) {
+  transform: rotateX(335deg) translateY(30px);
+}
+
+.svg-home:nth-child(9) {
+  transform: rotateY(-323deg) rotateX(318deg) rotateZ(355deg) translateX(-14px);
+}

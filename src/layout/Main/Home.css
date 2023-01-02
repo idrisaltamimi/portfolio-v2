@@ -1,0 +1,9 @@
+.home {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+
+.subtitle-home {
+  font-size: 3rem;
+}
