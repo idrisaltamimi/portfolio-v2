@@ -31,6 +31,7 @@ header {
   top: 16px;
   left: 1px;
   background-color: var(--clr-accent);
+  background-color: var(--clr-accentHover);
   box-shadow: 0 0 0 2px var(--clr-bg);
 }
 

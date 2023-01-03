@@ -8,6 +8,7 @@ interface Props {
   size: string
   color: string
   to?: string
+  switchFont?: boolean
   onClick?: () => void
 }
 
@@ -16,6 +17,7 @@ const Button: React.FC<Props> = ({
   size = 'large',
   color,
   to = '',
+  switchFont,
   onClick = () => ''
 }) => {
   const navigate = useNavigate()
@@ -27,10 +29,13 @@ const Button: React.FC<Props> = ({
     navigate(to)
   }
 
+  const switchFontClassName = switchFont ? 'button button-arabic' : 'button'
+  // { fontFamily: "'Nikar', sans-serif" } : { fontFamily: "'Titillium Web', sans-serif" }
+
   return (
     <div>
       <button
-        className='button'
+        className={switchFontClassName}
         data-color={color}
         data-size={size}
         onClick={handleNavigate}

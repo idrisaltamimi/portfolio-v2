@@ -1,0 +1,23 @@
+.svg-clr {
+  fill: none;
+  stroke: var(--clr-dark);
+  stroke-miterlimit: 1;
+}
+
+.static-vector {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  transform: translate(-50px, 60px) rotate(3deg);
+  max-width: 300px;
+  width: 100%;
+}
+
+.static-vector path {
+  stroke-dasharray: 0;
+  stroke-dashoffset: 0;
+  stroke-width: .4;
+  stroke: var(--clr-dark);
+  fill: none;
+  transition: stroke-dashoffset 1s ease;
+}

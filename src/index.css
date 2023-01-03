@@ -1,28 +1,69 @@
+@font-face {
+  font-family: 'Nikar';
+  src: url('./assets/fonts/neckar-regular.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nikar';
+  src: url('./assets/fonts/neckar-bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --ff: 'Titillium Web', sans-serif;
+  --ff-arabic: 'Nikar', Fallback, sans-serif;
+
+  --clr-white: #fff;
+  --clr-black: #000;
+
+  --clr-transparent-dark: #0000004b;
+  --clr-transparent-light: #ffffff4b;
+
+  --clr-light: #f0f0f0;
+  --clr-dark: #151515;
+
+  --clr-accent: #4938b8;
+  --clr-accentHover: #6E5FCE;
+  --clr-accentDark: #9a8dff;
+  --clr-accentDarkHover: #b5abff;
+  --clr-outlinedHover: #DEDEDE;
+
+  --clr-bg: #e8e8e8;
+  --clr-grey: #4e4e4e;
+}
+
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Titillium Web', sans-serif;
+}
+
+body[dir='ltr'],
+body[dir='ltr'] button,
+body[dir='ltr'] a,
+body[dir='ltr'] label,
+body[dir='ltr'] input,
+body[dir='ltr'] input::placeholder {
+  font-family: var(--ff);
+}
+
+body[dir='rtl'],
+body[dir='rtl'] button,
+body[dir='rtl'] a,
+body[dir='rtl'] label,
+body[dir='rtl'] input,
+body[dir='rtl'] input::placeholder {
+  direction: rtl;
+  font-family: var(--ff-arabic);
+  text-align: right !important;
 }
 
 *,
 *::after,
 *::before {
   box-sizing: border-box;
-}
-
-:root {
-  --clr-white: #fff;
-  --clr-black: #000;
-
-  --clr-light: #f0f0f0;
-  --clr-dark: #151515;
-
-  --clr-accent: #4938b8;
-  --clr-accentHover: #4f439c;
-  --clr-accentDark: #9a8dff;
-  --clr-accentDarkHover: #b5abff;
-
-  --clr-bg: #e7e7e7;
 }
 
 html,
@@ -42,9 +83,13 @@ a {
   text-decoration: none;
 }
 
-main,
+img {
+  width: 100%;
+}
+
+section,
 footer {
-  margin: 0 120px;
+  padding: 0 120px;
   transform: translateY(60px);
 }
 
@@ -58,15 +103,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+button,
+a {
   line-height: 1;
   font-weight: 700;
-}
-
-h1 {
-  font-size: 6rem;
-}
-
-h2 {
-  font-size: 4rem;
 }

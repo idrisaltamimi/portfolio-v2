@@ -14,9 +14,9 @@ const Header = () => {
       <nav>
         {navItems.map((navItem, index) => {
           const classNameNav = index === 0 ? 'nav-item nav-item-active' : 'nav-item'
-          return (<Link key={index} to={`#${navItem.toLocaleLowerCase()}`} className={classNameNav}>
+          return (<a key={index} href={`#${navItem.toLocaleLowerCase()}`} className={classNameNav}>
             {navItem}
-          </Link>)
+          </a>)
         })}
       </nav>
 
@@ -25,6 +25,7 @@ const Header = () => {
           label={'العربية'}
           color={'light'}
           size={'small'}
+          switchFont={true}
           onClick={() => ''}
         />
         <Button

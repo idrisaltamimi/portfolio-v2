@@ -1,11 +1,14 @@
 import { Route, Routes } from 'react-router-dom'
 
-import { Footer, Header } from './components'
+import { Footer, Header, PathScroll } from './components'
 import { Main } from './pages'
 
 const App = () => {
+
+
   return (
     <>
+      <PathScroll />
       <Header />
       <main>
         <Routes>

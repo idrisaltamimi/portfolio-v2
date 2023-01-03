@@ -2,16 +2,20 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { HashRouter as Router } from 'react-router-dom'
 
+import { ThemeContextProvider } from './context'
 import App from './App'
 import './index.css'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 )
+
 root.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <ThemeContextProvider>
+      <Router>
+        <App />
+      </Router>
+    </ThemeContextProvider>
   </React.StrictMode>
 )

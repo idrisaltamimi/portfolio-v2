@@ -6,6 +6,8 @@
   border-radius: 6px 12px;
   transition: background-color 250ms linear;
   color: var(--clr-white);
+  display: grid;
+  place-items: center;
 }
 
 .button[data-color='light'] {
@@ -31,13 +33,20 @@
 }
 
 .button[data-color='outlined']:hover {
-  background-color: rgba(255, 255, 255, .8);
+  background-color: var(--clr-outlinedHover);
 }
 
 .button[data-size='large'] {
-  padding: .8em 1.8em;
+  padding: 1em 1.8em;
 }
 
 .button[data-size='small'] {
+  height: 40px;
   padding: .4em 1.1em;
+  line-height: 25px;
+}
+
+.button-arabic {
+  font-family: var(--ff-arabic) !important;
+  padding-top: 10px !important;
 }
