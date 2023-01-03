@@ -19,7 +19,7 @@ const Home = () => {
         <div className='home-hero'>
           <p className='home-overline'>I am Idris Al Tamimi,</p>
           <h1 className='home-title' >Frontend Developer</h1>
-          <h2 className='home-subtitle'>I create websites and wep applications
+          <h2 className='home-subtitle'>I create websites and web applications
             {/* <br />and mobile apps */}
           </h2>
           <div className='home-buttons'>
