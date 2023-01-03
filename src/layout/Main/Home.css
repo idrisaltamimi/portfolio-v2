@@ -3,12 +3,7 @@
 
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   gap: 2px;
-}
-
-.subtitle-home {
-  font-size: 3rem;
 }
 
 .home-hero {
@@ -26,6 +21,7 @@
 
 .home-title {
   font-size: 6.5rem;
+  color: var(--clr-black);
 }
 
 .home-subtitle {

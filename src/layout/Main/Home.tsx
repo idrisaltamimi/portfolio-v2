@@ -40,7 +40,7 @@ const Home = () => {
 
         {/* <p className='subtitle'>The Prophet (ﷺ) said, "No one of you becomes a true believer until he likes for his brother what he likes for himself".</p> */}
 
-        <IconsGroup />
+        {/* <IconsGroup /> */}
       </section>
     </>
   )

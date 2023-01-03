@@ -26,13 +26,11 @@ const Header = () => {
           color={'light'}
           size={'small'}
           switchFont={true}
-          onClick={() => ''}
         />
         <Button
           label={'Hire Me'}
           color={'outlined'}
           size={'small'}
-          onClick={() => ''}
         />
 
         <Toggler />

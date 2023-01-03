@@ -1,3 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: 'Nikar';
   src: url('./assets/fonts/neckar-regular.ttf');
@@ -12,32 +23,49 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Khodija';
+  src: url('./assets/fonts/Khodija.ttf');
+}
+
 :root {
   --ff: 'Titillium Web', sans-serif;
   --ff-arabic: 'Nikar', Fallback, sans-serif;
+  --ff-logo: 'Khodija', Fallback, sans-serif;
 
   --clr-white: #fff;
   --clr-black: #000;
 
-  --clr-transparent-dark: #0000004b;
   --clr-transparent-light: #ffffff4b;
+  --clr-transparent-dark: #0000004b;
 
   --clr-light: #f0f0f0;
   --clr-dark: #151515;
 
-  --clr-accent: #4938b8;
-  --clr-accentHover: #6E5FCE;
-  --clr-accentDark: #9a8dff;
-  --clr-accentDarkHover: #b5abff;
+  --clr-accent: #2F1CB0;
+  --clr-accentHover: #432BDE;
+  /* --clr-accentDark: #9a8dff;
+  --clr-accentDarkHover: #b5abff; */
   --clr-outlinedHover: #DEDEDE;
 
   --clr-bg: #e8e8e8;
   --clr-grey: #4e4e4e;
 }
 
-* {
-  margin: 0;
-  padding: 0;
+.dark-root {
+  --clr-bg: #03161B;
+  --clr-grey: #c8c8c8;
+
+  --clr-black: #fff;
+  --clr-white: #000;
+
+  --clr-transparent-dark: #ffffff4b;
+  --clr-transparent-light: #0000004b;
+
+  --clr-dark: #f0f0f0;
+  --clr-light: #151515;
+
+  --clr-accent: #7662FE;
 }
 
 body[dir='ltr'],
@@ -60,19 +88,16 @@ body[dir='rtl'] input::placeholder {
   text-align: right !important;
 }
 
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
-
 html,
 body {
   height: 100%;
 }
 
-body {
+body,
+header,
+footer {
   background-color: var(--clr-bg);
+  transition: background-color 200ms ease-in;
 }
 
 #root {

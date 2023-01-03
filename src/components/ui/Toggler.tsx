@@ -1,18 +1,16 @@
+import { useContext } from 'react'
 
-
-import { useState } from 'react'
+import { ThemeContext, ThemeContextType } from '../../context'
 import './Toggler.css'
 
 const Toggler = () => {
-  const [toggleMode, setToggleMode] = useState(false)
+  const { toggleMode, theme } = useContext(ThemeContext) as ThemeContextType
 
-  const toggle = () => setToggleMode(prev => !prev)
-
-  const classNameToggler = toggleMode ? 'toggler toggler-light' : 'toggler'
-  const classNameToggle = toggleMode ? 'toggle toggle-light' : 'toggle'
+  const classNameToggler = theme === 'light' ? 'toggler toggler-light' : 'toggler'
+  const classNameToggle = theme === 'light' ? 'toggle toggle-light' : 'toggle'
 
   return (
-    <button className='toggler-btn' onClick={toggle}>
+    <button className='toggler-btn' onClick={toggleMode}>
       <div className={classNameToggler}>
         <div className={classNameToggle} />
         <div className={classNameToggle} />

@@ -6,8 +6,9 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--clr-bg);
   box-shadow: 0 0 3px 1px rgba(0, 0, 0, .1);
+  /* background-color: rgba(255, 255, 255, .5) !important; */
+  /* backdrop-filter: blur(80px); */
   z-index: 100;
 }
 
@@ -19,26 +20,9 @@ header {
 }
 
 .logo-span {
+  font-family: var(--ff-logo);
   position: relative;
 }
-
-.logo-span::before,
-.logo-span::after {
-  content: "";
-  position: absolute;
-  width: 9px;
-  height: 6.5px;
-  top: 16px;
-  left: 1px;
-  background-color: var(--clr-accent);
-  background-color: var(--clr-accentHover);
-  box-shadow: 0 0 0 2px var(--clr-bg);
-}
-
-/* .logo-span::after {
-  left: 50px;
-  color: var(--clr-accent);
-} */
 
 nav {
   height: 100%;
