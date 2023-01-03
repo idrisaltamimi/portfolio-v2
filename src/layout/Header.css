@@ -32,7 +32,7 @@ nav {
   position: relative;
   height: 100%;
   font-weight: 600;
-  color: var(--clr-black);
+  color: var(--clr-dark);
   display: grid;
   place-items: center;
   transition: color 200ms linear;
@@ -47,14 +47,21 @@ nav {
 }
 
 .nav-item-active::after {
-  content: "";
+  content: '';
   position: absolute;
   top: calc(100% - 15px);
-  left: 2px;
   width: 50%;
   height: 2px;
   background-color: var(--clr-accent);
   border-radius: 100px;
+}
+
+body[dir='ltr'] .nav-item-active::after {
+  left: 2px;
+}
+
+body[dir='rtl'] .nav-item-active::after {
+  right: 2px;
 }
 
 .buttons-header {

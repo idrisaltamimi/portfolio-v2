@@ -1,6 +1,4 @@
-export { default as Header } from './Header'
-export { default as Footer } from './Footer'
 export { default as IconsGroup } from './IconsGroup'
 export { default as Button } from './ui/Button'
-export { default as Toggler } from './ui/Toggler'
+export { default as ThemeToggler } from './ui/ThemeToggler'
 export { default as PathScroll } from './ui/PathScroll'

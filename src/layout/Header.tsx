@@ -1,10 +1,19 @@
 import { Link } from 'react-router-dom'
 // import { HashLink } from 'react-router-hash-link'
 
+import { useTranslation } from 'react-i18next'
+
 import './Header.css'
-import { Button, Toggler } from './'
+import { Button, ThemeToggler } from '../components'
 
 const Header = () => {
+  const { i18n, t } = useTranslation()
+  const switchLanguage = () => {
+    const currentLng = i18n.language === 'ar' ? 'en' : 'ar'
+    localStorage.setItem('lng', currentLng)
+
+    return i18n.changeLanguage(currentLng)
+  }
 
   return (
     <header>
@@ -15,18 +24,19 @@ const Header = () => {
 
       <div className='buttons-header'>
         <Button
-          label={'العربية'}
+          label={t('header.lng')}
           color={'light'}
           size={'small'}
           switchFont={true}
+          onClick={switchLanguage}
         />
         <Button
-          label={'Hire Me'}
+          label={t('header.hireMe')}
           color={'outlined'}
           size={'small'}
         />
 
-        <Toggler />
+        <ThemeToggler />
       </div>
     </header>
   )
@@ -34,16 +44,23 @@ const Header = () => {
 
 export default Header
 
+interface itemProps {
+  itemProps: string
+}
+
 const Nav = () => {
-  const to = (hash: string) => ({ pathname: '/', hash: `#${hash}` })
+  const { t } = useTranslation()
+  const to = (hash: string) => ({ pathname: '/', hash: `${hash}` })
   const navItems = ['Home', 'About', 'Portfolio', 'Contact']
+
+  const arr = t('header.nav', { returnObjects: true }) as []
 
   return (
     <nav>
-      {navItems.map((navItem, index) => {
+      {arr.map((navItem, index) => {
         const classNameNav = index === 0 ? 'nav-item nav-item-active' : 'nav-item'
         return (
-          <Link key={index} to={to(navItem.toLocaleLowerCase())} className={classNameNav}>
+          <Link key={index} to={to(navItems[index].toLocaleLowerCase())} className={classNameNav}>
             {navItem}
           </Link>
         )

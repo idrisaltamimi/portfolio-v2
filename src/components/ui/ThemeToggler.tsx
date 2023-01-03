@@ -1,9 +1,9 @@
 import { useContext } from 'react'
 
 import { ThemeContext, ThemeContextType } from '../../context'
-import './Toggler.css'
+import './ThemeToggler.css'
 
-const Toggler = () => {
+const ThemeToggler = () => {
   const { toggleMode, theme } = useContext(ThemeContext) as ThemeContextType
 
   const classNameToggler = theme === 'light' ? 'toggler toggler-light' : 'toggler'
@@ -25,4 +25,4 @@ const Toggler = () => {
   )
 }
 
-export default Toggler
+export default ThemeToggler

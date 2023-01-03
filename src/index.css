@@ -33,39 +33,30 @@
   --ff-arabic: 'Nikar', Fallback, sans-serif;
   --ff-logo: 'Khodija', Fallback, sans-serif;
 
-  --clr-white: #fff;
-  --clr-black: #000;
-
-  --clr-transparent-light: #ffffff4b;
-  --clr-transparent-dark: #0000004b;
+  --clr-light: #fff;
+  --clr-dark: #000;
+  --clr-grey: #4e4e4e;
 
   --clr-light: #f0f0f0;
   --clr-dark: #151515;
 
-  --clr-accent: #2F1CB0;
-  --clr-accentHover: #432BDE;
-  /* --clr-accentDark: #9a8dff;
-  --clr-accentDarkHover: #b5abff; */
-  --clr-outlinedHover: #DEDEDE;
+  --clr-accent: #1C41B0;
+  --clr-accentHover: #214ed4;
+  --clr-outlinedHover: #e0e0e0;
 
   --clr-bg: #e8e8e8;
-  --clr-grey: #4e4e4e;
 }
 
 .dark-root {
-  --clr-bg: #03161B;
+  --clr-dark: #fff;
+  --clr-light: #000;
   --clr-grey: #c8c8c8;
 
-  --clr-black: #fff;
-  --clr-white: #000;
+  --clr-accent: #87b7f2;
+  --clr-accentHover: #5e9fed;
+  --clr-outlinedHover: #062932;
 
-  --clr-transparent-dark: #ffffff4b;
-  --clr-transparent-light: #0000004b;
-
-  --clr-dark: #f0f0f0;
-  --clr-light: #151515;
-
-  --clr-accent: #7662FE;
+  --clr-bg: #03161B;
 }
 
 body[dir='ltr'],
