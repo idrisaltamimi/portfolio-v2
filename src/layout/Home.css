@@ -3,7 +3,7 @@
 
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 4em;
 }
 
 .home-hero {
@@ -32,5 +32,38 @@
 .home-buttons {
   display: flex;
   align-items: center;
-  gap: 2em;
+  gap: 3em;
+}
+
+.home-about {
+  position: relative;
+  padding: 1em;
+  max-width: 600px;
+  width: 100%;
+  color: var(--clr-grey);
+  font-size: 1.125rem;
+  line-height: 2em;
+  border-radius: 1em 2em;
+  background-color: var(--clr-shadow);
+  border: 1px solid var(--clr-dark);
+}
+
+body[dir='ltr'] .home-about::before {
+  left: -10px;
+}
+
+body[dir='rtl'] .home-about::before {
+  right: -10px;
+}
+
+body[dir='rtl'] .home-about {
+  font-size: 1.25rem;
+}
+
+body[dir='ltr'] .home-about {
+  border-radius: 2em 1em;
+}
+
+body[dir='rtl'] .home-about {
+  border-radius: 1em 2em;
 }

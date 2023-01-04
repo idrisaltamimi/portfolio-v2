@@ -3,11 +3,18 @@
   font-size: 18px;
   font-weight: 600;
   border: 0;
-  border-radius: 6px 12px;
   transition: background-color 250ms linear;
   color: var(--clr-light);
   display: grid;
   place-items: center;
+}
+
+body[dir='ltr'] .button {
+  border-radius: 12px 6px;
+}
+
+body[dir='rtl'] .button {
+  border-radius: 6px 12px;
 }
 
 .button[data-color='light'] {
@@ -37,11 +44,13 @@
 }
 
 .button[data-size='large'] {
+  height: 60px;
+  font-size: 20px;
   padding: 1em 1.8em;
 }
 
 .button[data-size='small'] {
-  height: 40px;
+  height: 46px;
   padding: .4em 1.1em;
   line-height: 25px;
 }
@@ -49,4 +58,8 @@
 .button-arabic {
   font-family: var(--ff-arabic) !important;
   padding-top: 10px !important;
+}
+
+.button-english {
+  font-family: var(--ff) !important;
 }

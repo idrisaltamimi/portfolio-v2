@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom'
-// import { HashLink } from 'react-router-hash-link'
-
 import { useTranslation } from 'react-i18next'
 
-import './Header.css'
 import { Button, ThemeToggler } from '../components'
+import './Header.css'
 
 const Header = () => {
   const { i18n, t } = useTranslation()
@@ -44,10 +42,6 @@ const Header = () => {
 
 export default Header
 
-interface itemProps {
-  itemProps: string
-}
-
 const Nav = () => {
   const { t } = useTranslation()
   const to = (hash: string) => ({ pathname: '/', hash: `${hash}` })
@@ -60,7 +54,7 @@ const Nav = () => {
       {arr.map((navItem, index) => {
         const classNameNav = index === 0 ? 'nav-item nav-item-active' : 'nav-item'
         return (
-          <Link key={index} to={to(navItems[index].toLocaleLowerCase())} className={classNameNav}>
+          <Link key={crypto.randomUUID()} to={to(navItems[index].toLocaleLowerCase())} className={classNameNav}>
             {navItem}
           </Link>
         )

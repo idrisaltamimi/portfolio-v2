@@ -1,10 +1,12 @@
-import { MouseEvent } from 'react'
-import { useTranslation, Trans } from 'react-i18next'
+import { MouseEvent, useContext } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { Button, IconsGroup } from '../components'
+import { ThemeContext, ThemeContextType } from '../context'
 import './Home.css'
 
 const Home = () => {
+  const { theme } = useContext(ThemeContext) as ThemeContextType
   const { t } = useTranslation()
   const onMouseMove = useMouseMove()
 
@@ -30,6 +32,7 @@ const Home = () => {
             />
           </div>
         </div>
+        <p className='home-about border-theme'>{t('home.about')}</p>
 
         {/* <p className='subtitle'>The Prophet (ﷺ) said, "No one of you becomes a true believer until he likes for his brother what he likes for himself".</p> */}
 

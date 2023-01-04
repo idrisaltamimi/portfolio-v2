@@ -35,28 +35,27 @@
 
   --clr-light: #fff;
   --clr-dark: #000;
-  --clr-grey: #4e4e4e;
-
-  --clr-light: #f0f0f0;
-  --clr-dark: #151515;
+  --clr-grey: #33454d;
 
   --clr-accent: #1C41B0;
   --clr-accentHover: #214ed4;
-  --clr-outlinedHover: #e0e0e0;
+  --clr-outlinedHover: #d7d7df;
 
   --clr-bg: #e8e8e8;
+  --clr-shadow: #e1e2ef33;
 }
 
 .dark-root {
   --clr-dark: #fff;
   --clr-light: #000;
-  --clr-grey: #c8c8c8;
+  --clr-grey: #cbd0d2;
 
   --clr-accent: #87b7f2;
   --clr-accentHover: #5e9fed;
   --clr-outlinedHover: #062932;
 
   --clr-bg: #03161B;
+  --clr-shadow: #32355233;
 }
 
 body[dir='ltr'],

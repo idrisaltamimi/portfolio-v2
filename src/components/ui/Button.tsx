@@ -1,4 +1,4 @@
-
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
 import './Button.css'
@@ -20,6 +20,7 @@ const Button: React.FC<Props> = ({
   switchFont,
   onClick = () => ''
 }) => {
+  const { i18n } = useTranslation()
   const navigate = useNavigate()
 
   const handleNavigate = () => {
@@ -29,8 +30,8 @@ const Button: React.FC<Props> = ({
     navigate(to)
   }
 
-  const switchFontClassName = switchFont ? 'button button-arabic' : 'button'
-  // { fontFamily: "'Nikar', sans-serif" } : { fontFamily: "'Titillium Web', sans-serif" }
+  const switchFontClassName = (switchFont && i18n.language === 'en') ? 'button button-arabic ' :
+    (switchFont && i18n.language === 'ar') ? 'button button-english' : 'button'
 
   return (
     <div>

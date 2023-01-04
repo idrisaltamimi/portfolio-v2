@@ -25,12 +25,13 @@ nav {
   height: 100%;
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 40px;
 }
 
 .nav-item {
   position: relative;
   height: 100%;
+  font-size: 18px;
   font-weight: 600;
   color: var(--clr-dark);
   display: grid;
@@ -46,20 +47,42 @@ nav {
   color: var(--clr-accent);
 }
 
-.nav-item-active::after {
+
+.nav-item::after {
   content: '';
   position: absolute;
   top: calc(100% - 15px);
   width: 50%;
   height: 2px;
-  background-color: var(--clr-accent);
+  background: linear-gradient(var(--clr-accentHover), var(--clr-accentHover));
   border-radius: 100px;
+  transition: 300ms ease;
 }
 
+.nav-item::after {
+  background-size: 0 0;
+  background-repeat: repeat-y;
+}
+
+body[dir='ltr'] .nav-item::after {
+  background-position: 0 100%;
+}
+
+body[dir='rtl'] .nav-item::after {
+  background-position: 100% 0;
+}
+
+.nav-item:hover.nav-item::after,
+.nav-item-active::after {
+  background-size: 100% 100%;
+}
+
+body[dir='ltr'] .nav-item.nav-item::after,
 body[dir='ltr'] .nav-item-active::after {
   left: 2px;
 }
 
+body[dir='rtl'] .nav-item.nav-item::after,
 body[dir='rtl'] .nav-item-active::after {
   right: 2px;
 }
