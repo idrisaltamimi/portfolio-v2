@@ -10,15 +10,15 @@ header {
 }
 
 .logo {
-  color: var(--clr-dark);
+  position: relative;
+  font-family: var(--ff-logo) !important;
   font-size: 40px;
   font-weight: 900;
+  color: var(--clr-dark);
   line-height: 1;
-}
-
-.logo-span {
-  font-family: var(--ff-logo);
-  position: relative;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
 }
 
 nav {
@@ -37,6 +37,9 @@ nav {
   display: grid;
   place-items: center;
   transition: color 200ms linear;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
 }
 
 .nav-item:hover {

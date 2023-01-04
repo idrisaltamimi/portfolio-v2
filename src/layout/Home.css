@@ -37,7 +37,7 @@
 
 .home-about {
   position: relative;
-  padding: 1em;
+  padding: 2em;
   max-width: 600px;
   width: 100%;
   color: var(--clr-grey);
@@ -45,7 +45,7 @@
   line-height: 2em;
   border-radius: 1em 2em;
   background-color: var(--clr-shadow);
-  border: 1px solid var(--clr-dark);
+  border: 1px solid var(--clr-grey);
 }
 
 body[dir='ltr'] .home-about::before {

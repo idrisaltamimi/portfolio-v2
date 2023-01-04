@@ -1,44 +1,52 @@
-import { MouseEvent, useContext } from 'react'
+import { MouseEvent, useContext, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 
 import { Button, IconsGroup } from '../components'
 import { ThemeContext, ThemeContextType } from '../context'
+import { useHashScroll } from '../hooks'
 import './Home.css'
 
 const Home = () => {
-  const { theme } = useContext(ThemeContext) as ThemeContextType
+  const { getHash } = useContext(ThemeContext) as ThemeContextType
   const { t } = useTranslation()
+  const navigate = useNavigate()
+  const homeRef = useRef<HTMLInputElement>(null)
+  useHashScroll(homeRef.current, 'home')
   const onMouseMove = useMouseMove()
 
+  const onClick = () => {
+    getHash('/#portfolio')
+    navigate(`/#portfolio`)
+  }
+
   return (
-    <>
-      <section id='home' className='home' onMouseMove={onMouseMove}>
-        <div className='home-hero'>
-          <p className='home-overline'>{t('home.overline')}</p>
-          <h1 className='home-title' >{t('home.title')}</h1>
-          <h2 className='home-subtitle'>{t('home.subtitle')}</h2>
-          <div className='home-buttons'>
-            <Button
-              label={t('home.projects')}
-              color='light'
-              size='large'
-              to={'#portfolio'}
-            />
-            <Button
-              label={t('home.contact')}
-              color='outlined'
-              size='large'
-              to={'#contact'}
-            />
-          </div>
+    <section ref={homeRef} id='home' className='home' >
+      <div className='home-hero'>
+        <p className='home-overline'>{t('home.overline')}</p>
+        <h1 className='home-title' >{t('home.title')}</h1>
+        <h2 className='home-subtitle'>{t('home.subtitle')}</h2>
+        <div className='home-buttons'>
+          <Button
+            label={t('home.projects')}
+            color='light'
+            size='large'
+            onClick={onClick}
+          />
+          <Button
+            label={t('home.contact')}
+            color='outlined'
+            size='large'
+            to={'#contact'}
+          />
         </div>
-        <p className='home-about border-theme'>{t('home.about')}</p>
+      </div>
+      <p className='home-about border-theme'>{t('home.about')}</p>
 
-        {/* <p className='subtitle'>The Prophet (ﷺ) said, "No one of you becomes a true believer until he likes for his brother what he likes for himself".</p> */}
+      {/* <p className='subtitle'>The Prophet (ﷺ) said, 'No one of you becomes a true believer until he likes for his brother what he likes for himself'.</p> */}
 
-        {/* <IconsGroup /> */}
-      </section>
-    </>
+      {/* <IconsGroup /> */}
+    </section>
   )
 }
 
