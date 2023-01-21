@@ -10,7 +10,7 @@
   -webkit-filter: brightness(80%) contrast(156%) blur(80px) grayscale(0%) hue-rotate(0deg) invert(0%) opacity(64%) saturate(157%) sepia(4%);
 }
 
-.background-image[data-theme='dark'] {
+/* .background-image[data-theme='dark'] {
   filter: brightness(75%) contrast(180%) blur(100px) grayscale(0%) hue-rotate(151deg) invert(3%) opacity(52%) saturate(141%) sepia(7%);
   -webkit-filter: brightness(75%) contrast(180%) blur(100px) grayscale(0%) hue-rotate(151deg) invert(3%) opacity(52%) saturate(141%) sepia(7%);
-}
+} */

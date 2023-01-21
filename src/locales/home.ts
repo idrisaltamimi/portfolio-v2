@@ -1,6 +1,7 @@
 export const homeAr = {
   overline: 'أنا إدريس التميمي،',
-  title: 'مطور مواقع',
+  title1: 'مطور ',
+  title2: 'مواقع',
   subtitle: 'أطور وأصنع مواقع وتطبيقات للمواقع',
   projects: 'مشاريعي',
   contact: 'تواصل معي',
@@ -8,7 +9,8 @@ export const homeAr = {
 }
 export const homeEn = {
   overline: 'I am Idris Al Tamimi,',
-  title: 'Frontend Developer',
+  title1: 'Web ',
+  title2: 'Developer',
   subtitle: 'I create websites and web apps',
   projects: 'My Projects',
   contact: 'Contact Me',

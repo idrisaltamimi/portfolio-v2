@@ -19,7 +19,14 @@
   /* opacity: .7; */
 }
 
+.home-heading {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
 .home-title {
+  display: inline;
   font-size: 6.5rem;
   color: var(--clr-dark);
 }
@@ -32,7 +39,7 @@
 .home-buttons {
   display: flex;
   align-items: center;
-  gap: 3em;
+  gap: 2em;
 }
 
 .home-about {
@@ -66,4 +73,57 @@ body[dir='ltr'] .home-about {
 
 body[dir='rtl'] .home-about {
   border-radius: 1em 2em;
+}
+
+/* heading underline */
+.home-heading-accent {
+  position: relative;
+}
+
+.home-heading svg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body[dir='rtl'] .home-heading svg {
+  left: 0;
+}
+
+body[dir='ltr'] .home-heading svg {
+  right: 0;
+  transform: translateY(80%);
+}
+
+/* mission action */
+.mission-action {
+  position: relative;
+}
+
+.mission-action svg {
+  position: absolute;
+  top: 50%;
+  width: 80px;
+}
+
+body[dir='rtl'] .mission-action svg {
+  left: 0;
+  transform: translate(-100%, 10%) rotate(-25deg);
+}
+
+body[dir='ltr'] .mission-action svg {
+  right: 0;
+  transform: translate(100%, 10%) rotate(25deg) scaleX(-1);
+}
+
+/* hero img */
+
+.hero-img {
+  position: absolute;
+  left: 0;
+  transform: scaleX(-1);
+  width: 1000px;
+  filter: contrast(100%) brightness(100%);
 }
