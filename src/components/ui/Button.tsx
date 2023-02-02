@@ -1,10 +1,11 @@
+import { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
 import './Button.css'
 
 interface Props {
-  label: string
+  children: ReactNode
   size: string
   color: string
   to?: string
@@ -13,7 +14,7 @@ interface Props {
 }
 
 const Button: React.FC<Props> = ({
-  label,
+  children,
   size = 'large',
   color,
   to = '',
@@ -41,7 +42,7 @@ const Button: React.FC<Props> = ({
         data-size={size}
         onClick={handleNavigate}
       >
-        {label}
+        {children}
       </button>
     </div>
   )

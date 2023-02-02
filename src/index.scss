@@ -29,7 +29,7 @@
 }
 
 :root {
-  --ff: 'Titillium Web', sans-serif;
+  --ff-english: 'Titillium Web', sans-serif;
   --ff-arabic: 'Nikar', Fallback, sans-serif;
   --ff-logo: 'Khodija', Fallback, sans-serif;
 
@@ -58,22 +58,12 @@
   --clr-shadow: #32355233;
 }
 
-body[dir='ltr'],
-body[dir='ltr'] button,
-body[dir='ltr'] a,
-body[dir='ltr'] label,
-body[dir='ltr'] input,
-body[dir='ltr'] input::placeholder {
-  font-family: var(--ff);
+body[dir='ltr'] * {
+  font-family: var(--ff-english);
 }
 
-body[dir='rtl'],
-body[dir='rtl'] button,
-body[dir='rtl'] a,
-body[dir='rtl'] label,
-body[dir='rtl'] input,
-body[dir='rtl'] input::placeholder {
-  direction: rtl;
+body[dir='rtl'] * {
+  direction: rtl !important;
   font-family: var(--ff-arabic);
   text-align: right !important;
 }
@@ -102,10 +92,30 @@ img {
   width: 100%;
 }
 
+body[dir='ltr'] {
+  :is(≈) {
+    transform: translateX(70px);
+  }
+}
+
+body[dir='rtl'] {
+  :is(section, footer) {
+    transform: translateX(-70px);
+  }
+}
+
 section,
 footer {
-  padding: 0 120px;
-  transform: translateY(60px);
+  width: calc(100% - 70px);
+}
+
+header {
+  padding: 20px;
+}
+
+section,
+footer {
+  padding: 0 10px;
 }
 
 section {
@@ -123,4 +133,36 @@ button,
 a {
   line-height: 1;
   font-weight: 700;
+}
+
+h1 {
+  font-size: 3rem;
+  font-size: 4.5rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+@media (min-width: 426px) {
+
+  section,
+  footer {
+    padding: 0 50px;
+  }
+}
+
+@media (min-width: 769px) {
+  h1 {
+    font-size: 6.5rem;
+  }
+
+  h2 {
+    font-size: 3.5rem;
+  }
+
+  section,
+  footer {
+    padding: 0 120px;
+  }
 }

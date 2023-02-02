@@ -18,12 +18,14 @@ i18n
         translation: {
           header: { ...headerEn },
           home: { ...homeEn },
+          or: 'or'
         }
       },
       ar: {
         translation: {
           header: { ...headerAr },
           home: { ...homeAr },
+          or: 'أو'
         }
       }
     }

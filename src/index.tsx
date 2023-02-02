@@ -5,7 +5,7 @@ import { HashRouter as Router } from 'react-router-dom'
 import { ThemeContextProvider } from './context'
 import App from './App'
 import './i18n'
-import './index.css'
+import './index.scss'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

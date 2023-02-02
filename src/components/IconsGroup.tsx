@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 
-import { CSSIcon, FigmaIcon, GitHubIcon, HTMLIcon, JavascriptIcon, MongooseIcon, NodeIcon, ReactIcon, TypescriptIcon } from '../assets/SVGIcons'
+import { CSSIcon, FigmaIcon, GitHubIcon, HTMLIcon, JavascriptIcon, MongooseIcon, NodeIcon, ReactIcon, TypescriptIcon } from '../assets/svgIcons'
 import './IconsGroup.css'
 
 const IconsGroup = () => {

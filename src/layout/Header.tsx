@@ -1,15 +1,19 @@
-import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
+import { useState } from 'react'
+
+// import { ThemeContext, ThemeContextType } from '../context'
 import { Button, ThemeToggler } from '../components'
-import './Header.css'
-import { useContext, useState } from 'react'
-import { ThemeContext, ThemeContextType } from '../context'
 import { useHashNavigate } from '../hooks'
+import { ContactIcon, HomeIcon, LanguageIcon, PortfolioIcon, PriceIcon, ServiceIcon } from '../assets/svgIcons'
+import './Header.scss'
 
 const Header = () => {
   const hashNavigate = useHashNavigate()
   const { i18n, t } = useTranslation()
+  const [toggleNav, setToggleNav] = useState(false)
+
+
   const switchLanguage = () => {
     const currentLng = i18n.language === 'ar' ? 'en' : 'ar'
     localStorage.setItem('lng', currentLng)
@@ -17,25 +21,29 @@ const Header = () => {
     return i18n.changeLanguage(currentLng)
   }
 
+  const currentHash = window.location.hash.split('#')[2]
+  const transparentHeaderClass = currentHash !== 'home' ? 'transparent-header' : ''
+
   return (
-    <header>
-      <button className='logo' onClick={() => hashNavigate('home')}>Idris</button>
-      <Nav />
+    <header className={`${transparentHeaderClass}`}>
+      {/* <button className='logo' onClick={() => hashNavigate('home')}>Idris</button> */}
+      <button>
+        <div />
+      </button>
+      <Nav toggleNav={toggleNav} />
 
       <div className='buttons-header'>
-        <Button
-          label={t('header.lng')}
+        {/* <Button
           color={'light'}
           size={'small'}
           switchFont={true}
           onClick={switchLanguage}
-        />
-        <Button
-          label={t('header.hireMe')}
-          color={'outlined'}
-          size={'small'}
-        />
-
+        >
+          {t('header.lng')}
+        </Button> */}
+        <button onClick={switchLanguage} className='nav-item'>
+          <div><LanguageIcon /></div>
+        </button>
         <ThemeToggler />
       </div>
     </header>
@@ -44,27 +52,34 @@ const Header = () => {
 
 export default Header
 
-const Nav = () => {
+const Nav: React.FC<{ toggleNav: boolean }> = ({ toggleNav }) => {
   const { t } = useTranslation()
   const hashNavigate = useHashNavigate()
 
-  const navLinks = ['home', 'about', 'portfolio', 'contact']
+  const navLinks = [
+    { name: 'home', icon: <HomeIcon /> },
+    { name: 'portfolio', icon: <PortfolioIcon /> },
+    { name: 'services', icon: <ServiceIcon /> },
+    { name: 'prices', icon: <PriceIcon /> },
+    { name: 'contact', icon: <ContactIcon /> },
+  ]
 
   const navItems = t('header.nav', { returnObjects: true }) as []
 
-  const onClick = (index: number) => hashNavigate(navLinks[index])
+  const onClick = (index: number) => hashNavigate(navLinks[index].name)
 
   const currentHash = window.location.hash.split('#')[2]
-  console.log(currentHash)
+
   return (
     <nav>
       {navItems.map((navItem, index) => {
         const classNameNav = (currentHash === undefined && index === 0) ? 'nav-item nav-item-active' :
-          currentHash === navLinks[index] ? 'nav-item nav-item-active' : 'nav-item'
+          currentHash === navLinks[index].name ? 'nav-item nav-item-active' : 'nav-item'
 
         return (
           <button key={crypto.randomUUID()} onClick={() => onClick(index)} className={classNameNav}>
-            {navItem}
+            <div>{navLinks[index].icon}</div>
+            <div>{toggleNav && navItem}</div>
           </button>
         )
       })}

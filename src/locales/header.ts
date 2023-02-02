@@ -1,10 +1,8 @@
 export const headerAr = {
   lng: 'English',
-  hireMe: 'وظفني',
-  nav: ['الصفحة الرئيسة', 'عني', 'المشاريع', 'تواصل']
+  nav: ['الصفحة الرئيسة', 'المشاريع', 'الخدمات', 'الأسعار', 'تواصل']
 }
 export const headerEn = {
   lng: 'العربية',
-  hireMe: 'Hire Me',
-  nav: ['Home', 'About', 'Portfolio', 'Contact']
+  nav: ['Home', 'Portfolio', 'Services', 'Prices', 'Contact']
 }

@@ -16,10 +16,11 @@
   font-weight: 600;
   font-size: 2rem;
   color: var(--clr-grey);
-  /* opacity: .7; */
 }
 
 .home-heading {
+  width: max-content;
+  position: relative;
   display: flex;
   align-items: center;
   gap: 2em;
@@ -27,19 +28,22 @@
 
 .home-title {
   display: inline;
-  font-size: 6.5rem;
   color: var(--clr-dark);
 }
 
 .home-subtitle {
-  font-size: 3.5rem;
   color: var(--clr-grey);
 }
 
 .home-buttons {
   display: flex;
   align-items: center;
-  gap: 2em;
+  gap: 1em;
+
+  p {
+    color: var(--clr-dark);
+    font-size: 16px;
+  }
 }
 
 .home-about {
@@ -76,25 +80,22 @@ body[dir='rtl'] .home-about {
 }
 
 /* heading underline */
-.home-heading-accent {
-  position: relative;
-}
-
 .home-heading svg {
   position: absolute;
   bottom: 0;
-  width: 100%;
   z-index: -1;
   pointer-events: none;
 }
 
 body[dir='rtl'] .home-heading svg {
+  width: 50%;
   left: 0;
 }
 
 body[dir='ltr'] .home-heading svg {
+  width: 65%;
   right: 0;
-  transform: translateY(80%);
+  transform: translateY(100%);
 }
 
 /* mission action */
@@ -105,7 +106,7 @@ body[dir='ltr'] .home-heading svg {
 .mission-action svg {
   position: absolute;
   top: 50%;
-  width: 80px;
+  width: 100px;
 }
 
 body[dir='rtl'] .mission-action svg {

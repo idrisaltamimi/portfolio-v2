@@ -3,7 +3,10 @@
   font-size: 18px;
   font-weight: 600;
   border: 0;
-  transition: background-color 250ms linear;
+  transition: background-color 250ms linear,
+    background-size 250ms ease-in-out,
+    color 250ms linear,
+    border-color 250ms linear;
   color: var(--clr-light);
   display: grid;
   place-items: center;
@@ -43,6 +46,11 @@ body[dir='rtl'] .button {
   background-color: var(--clr-outlinedHover);
 }
 
+.button[data-size='xLarge'] {
+  font-size: 26px;
+  padding: .8em 1.8em;
+}
+
 .button[data-size='large'] {
   height: 60px;
   font-size: 20px;
@@ -61,5 +69,5 @@ body[dir='rtl'] .button {
 }
 
 .button-english {
-  font-family: var(--ff) !important;
+  font-family: var(--ff-english) !important;
 }

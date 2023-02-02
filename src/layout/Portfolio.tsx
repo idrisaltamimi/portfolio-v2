@@ -1,13 +1,17 @@
 import { useRef } from 'react'
+import { useInView } from 'react-intersection-observer'
+import { mergeRefs } from 'react-merge-refs'
 
 import { useHashScroll } from '../hooks'
 
 const Portfolio = () => {
   const portfolioRef = useRef<HTMLInputElement>(null)
-  useHashScroll(portfolioRef.current, 'portfolio')
+  const { ref, inView } = useInView({ threshold: .6 })
+
+  useHashScroll(portfolioRef.current, 'portfolio', inView)
 
   return (
-    <section id='portfolio' ref={portfolioRef}>
+    <section id='portfolio' ref={mergeRefs([portfolioRef, ref])}>
 
     </section>
   )
