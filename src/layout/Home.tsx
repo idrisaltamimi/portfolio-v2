@@ -1,10 +1,8 @@
-import { useEffect } from 'react'
-import { MouseEvent, useContext, useRef } from 'react'
+import { useContext, useRef } from 'react'
 import { mergeRefs } from 'react-merge-refs'
 import { useTranslation } from 'react-i18next'
 import { useInView } from 'react-intersection-observer'
 import { useNavigate } from 'react-router-dom'
-import { mac1, mac2 } from '../assets'
 
 import { Button } from '../components'
 import { ThemeContext, ThemeContextType } from '../context'
@@ -19,7 +17,7 @@ const Home = () => {
   const { ref, inView } = useInView({ threshold: .6 })
 
   useHashScroll(homeRef.current, 'home', inView)
-  const onMouseMove = useMouseMove()
+  // const onMouseMove = useMouseMove()
 
   const onClick = () => {
     getHash('/#portfolio')
@@ -65,18 +63,18 @@ const Home = () => {
 
 export default Home
 
-const useMouseMove = () => {
-  const root = document.documentElement
+// const useMouseMove = () => {
+//   const root = document.documentElement
 
-  const onMouseMove = (e: MouseEvent) => {
-    const mouseX = (e.clientX) / window.innerWidth
-    const mouseY = (e.clientY) / window.innerHeight
+//   const onMouseMove = (e: MouseEvent) => {
+//     const mouseX = (e.clientX) / window.innerWidth
+//     const mouseY = (e.clientY) / window.innerHeight
 
-    root.style.setProperty('--mouse-x', `${mouseX * 7}%`)
-    root.style.setProperty('--mouse-y', `${mouseY * 7}%`)
-  }
-  return onMouseMove
-}
+//     root.style.setProperty('--mouse-x', `${mouseX * 7}%`)
+//     root.style.setProperty('--mouse-y', `${mouseY * 7}%`)
+//   }
+//   return onMouseMove
+// }
 
 const HighlightArrow = () => {
   const { theme } = useContext(ThemeContext) as ThemeContextType
