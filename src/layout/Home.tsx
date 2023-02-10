@@ -6,7 +6,7 @@ import { useInView } from 'react-intersection-observer'
 import { useNavigate } from 'react-router-dom'
 import { mac1, mac2 } from '../assets'
 
-import { Button, IconsGroup } from '../components'
+import { Button } from '../components'
 import { ThemeContext, ThemeContextType } from '../context'
 import { useHashScroll } from '../hooks'
 import './Home.scss'
@@ -59,8 +59,6 @@ const Home = () => {
       {/* <p className='home-about border-theme'>{t('home.about')}</p> */}
 
       {/* <p className='subtitle'>The Prophet (ﷺ) said, 'No one of you becomes a true believer until he likes for his brother what he likes for himself'.</p> */}
-
-      {/* <IconsGroup /> */}
     </section>
   )
 }
