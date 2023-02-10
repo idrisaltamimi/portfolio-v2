@@ -4,15 +4,15 @@ import { useContext, useEffect, useState } from 'react'
 
 import { ThemeContext, ThemeContextType } from '../context'
 import { useHashNavigate } from '../hooks'
-import { ContactIcon, HomeIcon, LanguageIcon, PortfolioIcon, PriceIcon, ServiceIcon, MoonIcon, SunIcon } from '../assets/svgIcons'
+import { contactIcon, homeIcon, languageIcon, portfolioIcon, priceIcon, serviceIcon, moonIcon, sunIcon } from '../assets'
 import './Sidebar.scss'
 
 const navLinks = [
-  { name: 'home', icon: <HomeIcon /> },
-  { name: 'portfolio', icon: <PortfolioIcon /> },
-  { name: 'services', icon: <ServiceIcon /> },
-  { name: 'prices', icon: <PriceIcon /> },
-  { name: 'contact', icon: <ContactIcon /> },
+  { name: 'home', icon: homeIcon },
+  { name: 'portfolio', icon: portfolioIcon },
+  { name: 'services', icon: serviceIcon },
+  { name: 'prices', icon: priceIcon },
+  { name: 'contact', icon: contactIcon },
 ]
 
 const Sidebar = () => {
@@ -64,15 +64,15 @@ const Sidebar = () => {
 
         <div className='header-section'>
           <button onClick={switchLanguage} className='nav-row'>
-            <div className='nav-icon'><LanguageIcon /></div>
+            <div className='nav-icon'>{languageIcon}</div>
             <div className='nav-text header-lng'>{t('header.lng')}</div>
           </button>
           <button className='nav-row' onClick={toggleMode}>
             <button className='nav-icon'>
               {theme === 'light' ? (
-                <MoonIcon />
+                moonIcon
               ) : (
-                <SunIcon />
+                sunIcon
               )}
             </button>
             <div ></div>
