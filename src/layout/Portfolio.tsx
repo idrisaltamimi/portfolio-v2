@@ -1,8 +1,9 @@
-import { useRef } from 'react'
+import { CSSProperties, useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { mergeRefs } from 'react-merge-refs'
 
 import { useHashScroll } from '../hooks'
+import './Portfolio.scss'
 
 const Portfolio = () => {
   const portfolioRef = useRef<HTMLInputElement>(null)
@@ -12,7 +13,9 @@ const Portfolio = () => {
 
   return (
     <section id='portfolio' ref={mergeRefs([portfolioRef, ref])}>
-
+      <div className='portfolio grid'>
+        {/* <img src={ } /> */}
+      </div>
     </section>
   )
 }

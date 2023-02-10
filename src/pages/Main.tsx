@@ -1,5 +1,5 @@
 
-import { Home, Portfolio } from '../layout'
+import { Home, Portfolio, Services } from '../layout'
 import './Main.css'
 
 const Main = () => {
@@ -7,7 +7,7 @@ const Main = () => {
     <>
       <Home />
       <Portfolio />
-      <section ></section>
+      <Services />
       <section id='contact'></section>
     </>
   )

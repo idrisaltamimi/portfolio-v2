@@ -34,7 +34,7 @@ const Home = () => {
           <h1 className='home-title' >{t('home.title')}</h1>
           <UnderlineSvg />
         </div>
-        <h2 className='home-subtitle'>{t('home.subtitle')}</h2>
+        {/* <h2 className='home-subtitle'>{t('home.subtitle')}</h2> */}
         <div className='home-buttons'>
           <Button
             color='light'

@@ -1,7 +1,10 @@
 .background-image {
   position: fixed;
-  z-index: -1;
+  height: 100%;
+  object-fit: cover;
+  inset: 0;
   opacity: .5;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -14,3 +17,39 @@
   filter: brightness(75%) contrast(180%) blur(100px) grayscale(0%) hue-rotate(151deg) invert(3%) opacity(52%) saturate(141%) sepia(7%);
   -webkit-filter: brightness(75%) contrast(180%) blur(100px) grayscale(0%) hue-rotate(151deg) invert(3%) opacity(52%) saturate(141%) sepia(7%);
 } */
+
+#root {
+  overflow-x: hidden;
+}
+
+main {
+  transition: transform 300ms ease-in-out;
+}
+
+
+@media (min-width: 426px) {
+  .sidebar-active {
+    width: calc(100% - 130px);
+  }
+
+  body[dir='rtl'] .sidebar-active {
+    transform: translateX(-130px);
+  }
+
+  body[dir='ltr'] .sidebar-active {
+    transform: translateX(130px);
+  }
+
+  body[dir='ltr'] :is(section, footer) {
+    transform: translateX(70px);
+  }
+
+  body[dir='rtl'] :is(section, footer) {
+    transform: translateX(-70px);
+  }
+
+  section,
+  footer {
+    width: calc(100% - 70px);
+  }
+}

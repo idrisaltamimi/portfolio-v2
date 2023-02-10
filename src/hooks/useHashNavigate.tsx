@@ -9,7 +9,6 @@ const useHashNavigate = () => {
   const hashNavigate = (hashLink: string) => {
     getHash(`/#${hashLink}`)
     navigate(`/#${hashLink}`)
-    console.log('navigate link clicked')
   }
   return hashNavigate
 }

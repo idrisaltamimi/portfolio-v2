@@ -1,5 +1,5 @@
 export const homeAr = {
-  overline: 'أنا إدريس التميمي،',
+  overline: 'حان الوقت',
   title: 'مطور مواقع',
   subtitle: 'أطور وأصنع مواقع وتطبيقات للمواقع',
   projects: 'مشاريعي',

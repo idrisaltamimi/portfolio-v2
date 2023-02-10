@@ -1,0 +1,282 @@
+#root header {
+  transition: width 400ms ease-in-out,
+    transform 400ms ease-in-out;
+}
+
+.header-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--clr-shadow);
+  z-index: 99;
+}
+
+header {
+  position: fixed;
+  width: 70px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  box-shadow: 0 0 10px 0px var(--clr-shadow);
+
+  transform: translateX(70px);
+
+  .nav-item-text {
+    transition: background-color 200ms ease-in-out;
+  }
+}
+
+.sidebar {
+  transform: translateX(0px);
+  width: 200px;
+
+  .hamburger {
+    box-shadow: none;
+    background-color: var(--clr-bg);
+    transform: translateX(0);
+
+    div {
+      background-color: var(--clr-dark);
+    }
+  }
+}
+
+.header-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.header-row,
+.nav-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-row {
+  * {
+    cursor: pointer;
+    border: 0;
+  }
+}
+
+.logo,
+.nav-text,
+.nav-icon {
+  transition: all 200ms ease-in-out;
+}
+
+.logo,
+.nav-text {
+  font-size: 0px;
+  color: var(--clr-dark);
+}
+
+// logo //
+.logo {
+  width: 60px;
+  height: 60px;
+  font-family: var(--ff-logo) !important;
+  font-weight: 900;
+  line-height: 1;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+// navigation //
+.nav-row {
+  height: 60px;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+
+  &:hover {
+    .nav-text {
+      color: var(--clr-accentHover);
+    }
+
+    .nav-icon {
+      background-color: var(--clr-accentHover);
+    }
+
+    .nav-icon-path {
+      fill: var(--clr-light);
+    }
+  }
+}
+
+.nav-icon {
+  padding: .5em;
+  width: 60px;
+  height: 60px;
+  font-size: 18px;
+  background-color: transparent;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+}
+
+.nav-text {
+  font-weight: 600;
+  color: var(--clr-dark);
+}
+
+.nav-icon-path {
+  fill: var(--clr-dark);
+}
+
+// active row //
+.nav-row-active {
+  .nav-text {
+    color: var(--clr-accent);
+  }
+
+  .nav-icon {
+    background-color: var(--clr-accent);
+  }
+
+  .nav-icon-path {
+    fill: var(--clr-light);
+  }
+}
+
+// show sidebar text //
+header.mx-sidebar {
+  .logo {
+    font-size: 40px;
+  }
+
+  .header-row,
+  .nav-row {
+    gap: 4em;
+  }
+
+  .nav-text {
+    font-size: 18px;
+  }
+}
+
+// lng button fonts //
+body[dir='ltr'] .header-lng {
+  font-family: var(--ff-arabic);
+}
+
+body[dir='rtl'] .header-lng {
+  font-family: var(--ff-english);
+}
+
+// hamburger //
+.hamburger-div {
+  transition: transform 250ms ease-in-out;
+
+  &::after,
+  &::before {
+    transition: transform 250ms ease-in-out;
+  }
+}
+
+.hamburger {
+  transform: translateX(-70px);
+  width: 60px;
+  height: 60px;
+  padding: 1em;
+  border: 0;
+  background-color: var(--clr-accent);
+  border-radius: 12px;
+  box-shadow: 0 0 5px 2px var(--clr-shadow);
+  transition: background-color 300ms ease-in-out;
+
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+
+  div {
+    position: relative;
+    height: 3px;
+    width: 30px;
+    background-color: var(--clr-light);
+    border-radius: 100px;
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      right: 0;
+      background-color: inherit;
+      border-radius: inherit;
+    }
+
+    &::after {
+      transform: translateY(-10px);
+    }
+
+    &::before {
+      transform: translateY(10px);
+    }
+  }
+}
+
+.active-ham {
+  div {
+
+    &::after,
+    &::before {
+      transform: translateY(0);
+    }
+  }
+}
+
+.active-x {
+  div {
+    transform: rotate(45deg);
+
+    &::after,
+    &::before {
+      transform: translateY(0);
+    }
+
+    &::before {
+      opacity: 0;
+    }
+
+    &::after {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+// end of hamburger //
+
+
+@media (min-width: 426px) {
+  header {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    transform: translateX(0);
+    background-color: var(--clr-bg);
+    box-shadow: none;
+
+    div {
+      background-color: var(--clr-dark);
+    }
+  }
+
+  .header-overlay {
+    display: none;
+  }
+}

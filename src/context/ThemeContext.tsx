@@ -3,8 +3,11 @@ import { createContext, ReactElement, useEffect, useState } from 'react'
 export interface ThemeContextType {
   toggleMode: () => void
   getHash: (hash: string) => void
+  toggleMenu: () => void
+  closeMenu: () => void
   theme: string
   hash: string
+  menu: boolean
 }
 
 const ThemeContext = createContext<ThemeContextType | null>(null)
@@ -12,6 +15,8 @@ const ThemeContext = createContext<ThemeContextType | null>(null)
 const ThemeContextProvider = ({ children }: { children: ReactElement }) => {
   const [hash, setHash] = useState('')
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
+  const [menu, setMenu] = useState(false)
+
   useSwitchTheme(theme)
 
   const getHash = (hash: string) => setHash(hash)
@@ -25,12 +30,18 @@ const ThemeContextProvider = ({ children }: { children: ReactElement }) => {
     })
   }
 
+  const toggleMenu = () => setMenu(prev => !prev)
+  const closeMenu = () => setMenu(false)
+
   return (
     <ThemeContext.Provider value={{
       toggleMode,
       getHash,
+      toggleMenu,
+      closeMenu,
       theme,
-      hash
+      hash,
+      menu
     }}>
       {children}
     </ThemeContext.Provider>
