@@ -3,47 +3,46 @@
   font-size: 18px;
   font-weight: 600;
   border: 0;
-  transition: background-color 250ms linear,
-    background-size 250ms ease-in-out,
-    color 250ms linear,
-    border-color 250ms linear;
+  transition: background-color 250ms ease,
+    box-shadow 250ms ease-in-out,
+    border-color 250ms ease-in-out;
   color: var(--clr-light);
   display: grid;
   place-items: center;
-}
+  border-radius: 12px;
 
-body[dir='ltr'] .button {
-  border-radius: 12px 6px;
-}
+  box-shadow: 4px 4px 0 0 var(--clr-shadow);
 
-body[dir='rtl'] .button {
-  border-radius: 6px 12px;
+  &:hover {
+    box-shadow: -4px -4px 0 0 var(--clr-shadow);
+    border-color: var(--clr-shadow);
+  }
 }
 
 .button[data-color='light'] {
   background-color: var(--clr-accent);
-}
 
-.button[data-color='light']:hover {
-  background-color: var(--clr-accentHover);
+  &:hover {
+    background-color: var(--clr-accentHover);
+  }
 }
 
 .button[data-color='dark'] {
   background-color: var(--clr-accentDark);
-}
 
-.button[data-color='dark']:hover {
-  background-color: var(--clr-accentDarkHover);
+  &:hover {
+    background-color: var(--clr-accentDarkHover);
+  }
 }
 
 .button[data-color='outlined'] {
   color: var(--clr-dark);
   border: 1px solid var(--clr-dark);
   background-color: transparent;
-}
 
-.button[data-color='outlined']:hover {
-  background-color: var(--clr-outlinedHover);
+  &:hover {
+    border-color: var(--clr-shadow);
+  }
 }
 
 .button[data-size='xLarge'] {

@@ -21,15 +21,29 @@ header {
   z-index: 100;
   box-shadow: 0 0 10px 0px var(--clr-shadow);
 
-  transform: translateX(70px);
-
   .nav-item-text {
     transition: background-color 200ms ease-in-out;
   }
 }
 
+body[dir='rtl'] :is(header) {
+  transform: translateX(70px);
+}
+
+body[dir='rtl'] :is(.hamburger) {
+  transform: translateX(-70px);
+}
+
+body[dir='ltr'] :is(header) {
+  transform: translateX(-70px);
+}
+
+body[dir='ltr'] :is(.hamburger) {
+  transform: translateX(70px);
+}
+
 .sidebar {
-  transform: translateX(0px);
+  transform: translateX(0px) !important;
   width: 200px;
 
   .hamburger {
@@ -262,6 +276,12 @@ body[dir='rtl'] .header-lng {
 
 
 @media (min-width: 426px) {
+
+  body[dir='rtl'] :is(.hamburger, header),
+  body[dir='ltr'] :is(.hamburger, header) {
+    transform: translateX(0);
+  }
+
   header {
     transform: translateX(0);
   }

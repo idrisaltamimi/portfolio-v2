@@ -19,7 +19,7 @@ const App = () => {
   return (
     <>
       <img src={backgroundImage} alt='' className='background-image' data-theme={theme} />
-      <PathScroll />
+      <div style={{ opacity: 0 }}><PathScroll /></div>
       <Sidebar />
       <main className={sidebarActiveClass}>
         <Routes>

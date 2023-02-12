@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
-import './Button.css'
+import './Button.scss'
 
 interface Props {
   children: ReactNode
@@ -35,16 +35,14 @@ const Button: React.FC<Props> = ({
     (switchFont && i18n.language === 'ar') ? 'button button-english' : 'button'
 
   return (
-    <div>
-      <button
-        className={switchFontClassName}
-        data-color={color}
-        data-size={size}
-        onClick={handleNavigate}
-      >
-        {children}
-      </button>
-    </div>
+    <button
+      className={switchFontClassName}
+      data-color={color}
+      data-size={size}
+      onClick={handleNavigate}
+    >
+      {children}
+    </button>
   )
 }
 

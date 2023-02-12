@@ -44,10 +44,20 @@
   --clr-bg: #e8e8e8;
   --clr-shadow: #00000033;
 
+  --hue: 190deg;
+  --sat: 50%;
+  --blur: 0px;
   --big-tile-size: 50vmin;
   --scale: 0;
   --rotation: 360deg;
   --tile-size: calc(var(--big-tile-size) / 3);
+
+
+  --hue2: calc(var(--hue) + 60deg);
+  --sat2: calc(var(--sat) + 10%);
+  --clr: hsl(var(--hue) var(--sat) 90%);
+  --clr2: hsl(var(--hue2) var(--sat2) 85%);
+  --gradgap: 30%;
 }
 
 .dark-root {
@@ -70,7 +80,6 @@ body[dir='ltr'] * {
 body[dir='rtl'] * {
   direction: rtl !important;
   font-family: var(--ff-arabic);
-  text-align: right !important;
 }
 
 html,
@@ -106,9 +115,17 @@ footer {
   padding: 0 10px;
 }
 
+main {
+  max-height: 100vh;
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
+  height: 100%;
+}
+
 section {
   min-height: 100vh;
   height: 100%;
+  scroll-snap-align: start;
 }
 
 h1,

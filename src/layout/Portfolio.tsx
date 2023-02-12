@@ -14,7 +14,6 @@ const Portfolio = () => {
   return (
     <section id='portfolio' ref={mergeRefs([portfolioRef, ref])}>
       <div className='portfolio grid'>
-        {/* <img src={ } /> */}
       </div>
     </section>
   )

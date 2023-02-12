@@ -1,0 +1,138 @@
+#services {
+  position: relative;
+  padding-top: 4em;
+  color: var(--clr-dark);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4em;
+
+  h2 {
+    white-space: nowrap;
+  }
+
+  button {
+    align-self: stretch;
+  }
+}
+
+.idea {
+  max-height: 300px;
+  width: auto;
+  border-radius: 100px;
+}
+
+.service {
+  // background-color: var(--clr-light);
+  border-radius: 12px;
+  // padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+
+  svg {
+    path {
+      fill: var(--clr-dark);
+    }
+  }
+
+  p {
+    font-size: 1.125rem;
+    line-height: 2rem;
+    max-width: 220px;
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  #services {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 400px));
+    gap: 0;
+
+    h2 {
+      grid-row: 1;
+      grid-column: 1 / -1;
+      align-self: center;
+      justify-self: center;
+      white-space: nowrap;
+    }
+
+    .button {
+      grid-row: 5;
+      grid-column: 1 / -1;
+      align-self: start;
+      justify-self: center;
+      width: 100%;
+    }
+  }
+
+  .idea {
+    grid-row: 3;
+    grid-column: 1 / -1;
+    justify-self: center;
+    align-self: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  #services {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 400px));
+    gap: 0;
+
+    h2 {
+      grid-row: 1;
+      grid-column: 2;
+      align-self: center;
+      justify-self: center;
+      white-space: nowrap;
+    }
+
+    .button {
+      grid-row: 4;
+      grid-column: 2;
+      align-self: start;
+      justify-self: center;
+    }
+  }
+
+  .idea {
+    grid-row: 2;
+    grid-column: 2;
+    justify-self: center;
+    align-self: end;
+  }
+
+  .calender {
+    grid-row: 2;
+    grid-column: 1;
+    justify-self: start;
+    align-self: start;
+  }
+
+  .design {
+    grid-row: 3;
+    grid-column: 1;
+    align-self: start;
+  }
+
+  .create {
+    grid-row: 3;
+    grid-column: 3;
+    align-self: start;
+  }
+
+
+  .test {
+    grid-row: 2;
+    grid-column: 3;
+    justify-self: end;
+    align-self: start;
+  }
+
+}
