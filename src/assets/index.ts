@@ -1,5 +1,7 @@
 export { default as backgroundLight } from './images/background-light.jpg'
 export { default as backgroundDark } from './images/background-dark.png'
+export { default as heroLight } from './images/hero-light.png'
+export { default as heroDark } from './images/hero-dark.png'
 export { default as idea } from './images/idea.jpg'
 
 export { default as HomeIcon } from './icons/HomeIcon'

@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-import './PathScroll.css'
+import './PathScroll.scss'
 
 const PathScroll = () => {
   const pathRef1 = useRef(null)
@@ -24,28 +24,27 @@ const PathScroll = () => {
 export default PathScroll
 
 const useFillSvgPaths = (paths: any) => {
-  let scrollPercentage = 0
+  const [scrollPercentage, setScrollPercentage] = useState(0)
+
+
+  // let scrollPercentage = 0
   const fillSvgPaths = () => {
-    scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight)
+    const scrollPer = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight)
+
+    setScrollPercentage(scrollPer)
 
     paths.forEach((path: any) => {
       if (!path.current) return
-
       // @ts-ignore
       const pathLength = path.current.getTotalLength()
-
       // @ts-ignore
       path.current.style.strokeDasharray = pathLength
-
       // @ts-ignore
       path.current.style.strokeDashoffset = pathLength
-
       const drawLength = pathLength * scrollPercentage
-
       // @ts-ignore
       path.current.style.strokeDashoffset = pathLength - drawLength
     })
-
   }
 
   useEffect(() => {

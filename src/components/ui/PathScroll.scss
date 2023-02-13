@@ -11,13 +11,13 @@
   transform: translate(-35px, 60px) rotate(3deg);
   max-width: 250px;
   width: 100%;
-}
 
-.static-vector path {
-  stroke-dasharray: 0;
-  stroke-dashoffset: 0;
-  stroke-width: .4;
-  stroke: var(--clr-dark);
-  fill: none;
-  transition: stroke-dashoffset 1s ease;
+  path {
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
+    stroke-width: .4;
+    stroke: var(--clr-dark);
+    fill: none;
+    transition: stroke-dashoffset 1s ease;
+  }
 }

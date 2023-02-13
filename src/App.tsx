@@ -13,13 +13,16 @@ const App = () => {
   useSwitchPageDirecting()
   useStoredLng()
   const { theme, menu } = useContext(ThemeContext) as ThemeContextType
+
+  // const onMouseMove = useMouseMove()
+
   const backgroundImage = theme === 'light' ? backgroundLight : backgroundDark
   const sidebarActiveClass = menu ? 'sidebar-active' : ''
 
   return (
     <>
       <img src={backgroundImage} alt='' className='background-image' data-theme={theme} />
-      <div style={{ opacity: 0 }}><PathScroll /></div>
+      <PathScroll />
       <Sidebar />
       <main className={sidebarActiveClass}>
         <Routes>
@@ -55,3 +58,16 @@ const useStoredLng = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 }
+
+// const useMouseMove = () => {
+//   const root = document.documentElement
+
+//   const onMouseMove = (e: MouseEvent) => {
+//     const mouseX = (e.clientX) / window.innerWidth
+//     const mouseY = (e.clientY) / window.innerHeight
+
+//     root.style.setProperty('--mouse-x', `${mouseX * 7}%`)
+//     root.style.setProperty('--mouse-y', `${mouseY * 7}%`)
+//   }
+//   return onMouseMove
+// }

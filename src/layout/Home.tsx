@@ -8,9 +8,10 @@ import { Button } from '../components'
 import { ThemeContext, ThemeContextType } from '../context'
 import { useHashScroll } from '../hooks'
 import './Home.scss'
+import { heroLight, heroDark } from '../assets'
 
 const Home = () => {
-  const { getHash } = useContext(ThemeContext) as ThemeContextType
+  const { getHash, theme } = useContext(ThemeContext) as ThemeContextType
   const { t } = useTranslation()
   const navigate = useNavigate()
   const homeRef = useRef<HTMLInputElement>(null)
@@ -24,6 +25,8 @@ const Home = () => {
     navigate(`/#portfolio`)
   }
 
+  const heroImage = theme === 'light' ? heroLight : heroDark
+
   return (
     <section ref={mergeRefs([homeRef, ref])} id='home' className='home' >
       <div className='home-hero'>
@@ -32,7 +35,7 @@ const Home = () => {
           <h1 className='home-title' >{t('home.title')}</h1>
           <UnderlineSvg />
         </div>
-        {/* <h2 className='home-subtitle'>{t('home.subtitle')}</h2> */}
+        <h2 className='home-subtitle'>{t('home.subtitle')}</h2>
         <div className='home-buttons'>
           <Button
             color='light'
@@ -52,8 +55,8 @@ const Home = () => {
             <HighlightArrow />
           </div>
         </div>
+        <img className='hero-img' src={heroImage} alt='futuristic screen macbook with no keyboard' />
       </div>
-      {/* <img src={mac2} alt='' className='hero-img' /> */}
       {/* <p className='home-about border-theme'>{t('home.about')}</p> */}
 
       {/* <p className='subtitle'>The Prophet (ﷺ) said, 'No one of you becomes a true believer until he likes for his brother what he likes for himself'.</p> */}

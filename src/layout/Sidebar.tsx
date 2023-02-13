@@ -68,13 +68,13 @@ const Sidebar = () => {
             <div className='nav-text header-lng'>{t('header.lng')}</div>
           </button>
           <button className='nav-row' onClick={toggleMode}>
-            <button className='nav-icon'>
+            <div className='nav-icon'>
               {theme === 'light' ? (
                 <MoonIcon />
               ) : (
                 <SunIcon />
               )}
-            </button>
+            </div>
             <div ></div>
           </button>
         </div>
