@@ -29,7 +29,7 @@ const Portfolio = () => {
     <section id='portfolio' ref={mergeRefs([portfolioRef, ref])} onMouseMove={(e: MouseEvent) => onMouseMove(e)}>
       <h2 className='pl'>{t('portfolio.title')}</h2>
 
-      <div className='project'>
+      <div className='project first-project'>
         <div className='project-desc'>
           <h3>{t('portfolio.dalle')}</h3>
           <p>{t('portfolio.dalleDescription')}</p>
