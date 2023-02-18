@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 import { ThemeContext, ThemeContextType } from './context'
-import { PathScroll } from './components'
 import { Footer, Sidebar } from './layout'
 import { Main } from './pages'
 import './App.scss'
@@ -19,7 +18,6 @@ const App = () => {
 
   return (
     <>
-      <PathScroll />
       <Sidebar />
       <main className={sidebarActiveClass}>
         <Routes>
