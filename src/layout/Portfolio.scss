@@ -119,7 +119,7 @@ body[dir='ltr'] {
     background-color: #000;
     transform: translateZ(-29px);
     filter: blur(15px);
-    opacity: 1;
+    opacity: .5;
   }
 
   &::after {
