@@ -26,20 +26,32 @@ header {
   }
 }
 
-body[dir='rtl'] :is(header) {
-  transform: translateX(70px);
+body[dir='rtl'] {
+  header {
+    transform: translateX(70px);
+  }
+
+  .hamburger {
+    transform: translateX(-70px);
+  }
+
+  .sidebar .hamburger {
+    transform: translateX(0);
+  }
 }
 
-body[dir='rtl'] :is(.hamburger) {
-  transform: translateX(-70px);
-}
+body[dir='ltr'] {
+  header {
+    transform: translateX(-70px);
+  }
 
-body[dir='ltr'] :is(header) {
-  transform: translateX(-70px);
-}
+  .hamburger {
+    transform: translateX(70px);
+  }
 
-body[dir='ltr'] :is(.hamburger) {
-  transform: translateX(70px);
+  .sidebar .hamburger {
+    transform: translateX(0);
+  }
 }
 
 .sidebar {
@@ -200,7 +212,7 @@ body[dir='rtl'] .header-lng {
 }
 
 .hamburger {
-  transform: translateX(-70px);
+  // transform: translateX(-70px);
   width: 60px;
   height: 60px;
   padding: 1em;
@@ -275,7 +287,7 @@ body[dir='rtl'] .header-lng {
 // end of hamburger //
 
 
-@media (min-width: 426px) {
+@media (min-width: 769px) {
 
   body[dir='rtl'] :is(.hamburger, header),
   body[dir='ltr'] :is(.hamburger, header) {

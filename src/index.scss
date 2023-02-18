@@ -36,7 +36,7 @@
   --clr-light: #fff;
   --clr-dark: #000;
   --clr-grey: #33454d;
-
+  --clr-light2: rgb(230, 230, 230);
   --clr-accent: #1C41B0;
   --clr-accentHover: #214ed4;
   --clr-outlinedHover: #d7d7df;
@@ -96,8 +96,9 @@ header {
 }
 
 section,
-footer {
-  padding: 0 10px;
+footer,
+.pl {
+  padding-inline: 10px;
 }
 
 section {
@@ -118,33 +119,53 @@ a {
 }
 
 h1 {
-  font-size: 3rem;
-  font-size: 4.5rem;
+  font-size: 3.5rem;
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1rem;
 }
 
 @media (min-width: 426px) {
+  h1 {
+    font-size: 4.5rem;
+  }
 
   section,
-  footer {
-    padding: 0 50px;
+  footer,
+  .pl {
+    padding-inline: 50px;
   }
 }
 
 @media (min-width: 769px) {
   h1 {
-    font-size: 6.5rem;
+    font-size: 5.5rem;
   }
 
   h2 {
-    font-size: 3.5rem;
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1.125rem;
   }
 
   section,
-  footer {
-    padding: 0 120px;
+  footer,
+  .pl {
+    padding-inline: 120px;
   }
 }

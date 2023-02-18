@@ -1,5 +1,5 @@
 .background-image {
-  position: fixed;
+  position: absolute;
   height: 100%;
   object-fit: cover;
   inset: 0;
@@ -18,7 +18,7 @@
   overflow-x: hidden;
 }
 
-@media (min-width: 426px) {
+@media (min-width: 769px) {
   .sidebar-active {
     width: calc(100% - 130px);
   }

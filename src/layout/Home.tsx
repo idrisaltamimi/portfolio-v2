@@ -8,7 +8,7 @@ import { Button } from '../components'
 import { ThemeContext, ThemeContextType } from '../context'
 import { useHashScroll } from '../hooks'
 import './Home.scss'
-import { heroLight, heroDark } from '../assets'
+import { backgroundDark, backgroundLight, heroDark400, heroDark600, heroDark800, heroLight400, heroLight600, heroLight800 } from '../assets'
 
 const Home = () => {
   const { getHash, theme } = useContext(ThemeContext) as ThemeContextType
@@ -25,10 +25,14 @@ const Home = () => {
     navigate(`/#portfolio`)
   }
 
-  const heroImage = theme === 'light' ? heroLight : heroDark
+  // const heroImage = theme === 'light' ? heroLight : heroDark
+  const backgroundImage = theme === 'light' ? backgroundLight : backgroundDark
 
   return (
-    <section ref={mergeRefs([homeRef, ref])} id='home' className='home' >
+    <section ref={mergeRefs([homeRef, ref])} id='home' className='home'>
+
+      <img src={backgroundImage} alt='' className='background-image' data-theme={theme} />
+
       <div className='home-hero'>
         <p className='home-overline'>{t('home.overline')}</p>
         <div className='home-heading'>
@@ -55,7 +59,20 @@ const Home = () => {
             <HighlightArrow />
           </div>
         </div>
-        <img className='hero-img' src={heroImage} alt='futuristic screen macbook with no keyboard' />
+
+        {theme === 'light' ? (
+          <picture className='hero-img' >
+            <source media='(min-width: 1500px)' srcSet={heroLight800} />
+            <source media='(min-width: 426px)' srcSet={heroLight600} />
+            <img src={heroLight400} alt='futuristic screen macbook with no keyboard' />
+          </picture>
+        ) : (
+          <picture className='hero-img'>
+            <source media='(min-width: 1500px)' srcSet={heroDark800} />
+            <source media='(min-width: 426px)' srcSet={heroDark600} />
+            <img src={heroDark400} alt='futuristic screen macbook with no keyboard' />
+          </picture>
+        )}
       </div>
       {/* <p className='home-about border-theme'>{t('home.about')}</p> */}
 

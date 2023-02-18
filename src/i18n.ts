@@ -2,7 +2,16 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 
-import { homeAr, homeEn, headerAr, headerEn, servicesAr, servicesEn } from './locales'
+import {
+  homeAr,
+  homeEn,
+  headerAr,
+  headerEn,
+  portfolioEn,
+  portfolioAr,
+  servicesAr,
+  servicesEn,
+} from './locales'
 
 i18n
   .use(LanguageDetector)
@@ -18,6 +27,7 @@ i18n
         translation: {
           header: { ...headerEn },
           home: { ...homeEn },
+          portfolio: { ...portfolioEn },
           services: { ...servicesEn },
           or: 'or'
         }
@@ -26,6 +36,7 @@ i18n
         translation: {
           header: { ...headerAr },
           home: { ...homeAr },
+          portfolio: { ...portfolioAr },
           services: { ...servicesAr },
           or: 'أو'
         }

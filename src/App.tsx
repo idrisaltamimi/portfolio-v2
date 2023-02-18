@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 import { ThemeContext, ThemeContextType } from './context'
-import { backgroundDark, backgroundLight } from './assets'
 import { PathScroll } from './components'
 import { Footer, Sidebar } from './layout'
 import { Main } from './pages'
@@ -12,16 +11,14 @@ import './App.scss'
 const App = () => {
   useSwitchPageDirecting()
   useStoredLng()
-  const { theme, menu } = useContext(ThemeContext) as ThemeContextType
+  const { menu } = useContext(ThemeContext) as ThemeContextType
 
   // const onMouseMove = useMouseMove()
 
-  const backgroundImage = theme === 'light' ? backgroundLight : backgroundDark
   const sidebarActiveClass = menu ? 'sidebar-active' : ''
 
   return (
     <>
-      <img src={backgroundImage} alt='' className='background-image' data-theme={theme} />
       <PathScroll />
       <Sidebar />
       <main className={sidebarActiveClass}>
@@ -58,16 +55,3 @@ const useStoredLng = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 }
-
-// const useMouseMove = () => {
-//   const root = document.documentElement
-
-//   const onMouseMove = (e: MouseEvent) => {
-//     const mouseX = (e.clientX) / window.innerWidth
-//     const mouseY = (e.clientY) / window.innerHeight
-
-//     root.style.setProperty('--mouse-x', `${mouseX * 7}%`)
-//     root.style.setProperty('--mouse-y', `${mouseY * 7}%`)
-//   }
-//   return onMouseMove
-// }

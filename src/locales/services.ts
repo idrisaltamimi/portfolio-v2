@@ -4,7 +4,7 @@ export const servicesAr = {
   design: 'صناعة واجهة المستخدم الأولية ومناقشة مظهر الموقع مع العميل',
   create: 'البدأ في صناعة الموقع',
   test: 'عمل اختبارات لضمان جودة الموقع وعمل التحسينات الضرورية',
-  start: 'ابدأ'
+  start: 'ابدأ',
 }
 export const servicesEn = {
   title: 'How to start',
@@ -12,5 +12,5 @@ export const servicesEn = {
   design: 'Creating the user interface prototype and discussing the website theme with the client',
   create: 'Start the creating the website',
   test: 'Making tests to insure the quality of the website, and make necessary optimizations',
-  start: 'Get started'
+  start: 'Get started',
 }
