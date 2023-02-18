@@ -57,11 +57,26 @@
 }
 
 .project:nth-child(odd) {
-  flex-direction: row-reverse;
-
   .mobile-card {
-    top: 50%;
-    left: 50%;
+    right: -20%;
+  }
+}
+
+.project:nth-child(even) {
+  .mobile-card {
+    left: -20%;
+  }
+}
+
+body[dir='rtl'] {
+  .project:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+}
+
+body[dir='ltr'] {
+  .project:nth-child(even) {
+    flex-direction: row-reverse;
   }
 }
 
@@ -138,15 +153,14 @@
 
 .mobile-card {
   position: absolute;
-  // top: 50%;
-  // left: 50%;
-  max-width: 160px;
-  height: 300px;
-  transform: perspective(5000px) rotateX(-20deg) rotateY(20deg) translate(-50%, -50%);
+  top: 20%;
+  max-width: 140px;
+  height: 250px;
+  transform: perspective(5000px) rotateX(-20deg) rotateY(20deg);
 
   .slider {
-    grid-template-columns: repeat(100, minmax(160px, 100px));
-    grid-template-rows: 300px;
+    grid-template-columns: repeat(100, minmax(140px, 100px));
+    grid-template-rows: 250px;
   }
 }
 
