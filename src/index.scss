@@ -43,6 +43,7 @@
 
   --clr-bg: #e8e8e8;
   --clr-shadow: #00000033;
+  --clr-transparent: rgba(255, 255, 255, .4);
 }
 
 .dark-root {
@@ -56,6 +57,7 @@
 
   --clr-bg: #03161B;
   --clr-shadow: #ffffff33;
+  --clr-transparent: rgba(0, 0, 0, .4);
 }
 
 body[dir='ltr'] * {

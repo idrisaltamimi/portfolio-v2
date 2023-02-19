@@ -29,7 +29,7 @@
 
 .project {
   padding: 14em 0;
-  background: linear-gradient(to bottom, transparent, rgba($color: #fff, $alpha: .4));
+  background: linear-gradient(to bottom, transparent, var(--clr-transparent));
   width: 100%;
   display: flex;
   justify-content: center;
@@ -46,8 +46,29 @@
   -webkit-mask-composite: destination-out;
 
   .project-desc {
-    h3 {
-      margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    .tech-logos {
+      display: flex;
+      align-items: center;
+      gap: .6em;
+
+      svg {
+        path {
+          fill: var(--clr-dark);
+          opacity: .8;
+          transition: fill 300ms ease-in-out, opacity 300ms ease-in-out;
+        }
+
+        &:hover {
+          path {
+            fill: var(--clr-accent);
+            opacity: 1;
+          }
+        }
+      }
     }
   }
 }

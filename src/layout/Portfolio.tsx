@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 import { aqariFormM, aqariHome, aqariLatest, aqariLogin, aqariPostM, aqariPostsM, dalleCreate, dalleGenerate, dalleGenerateM, dalleHome, dalleHome2, dalleHomeM, dalleSearchM, kanbanDarkHome, kanbanEmptyHome, kanbanHome, kanbanModal, kanbanModalM, kanbanNavM, spaceHome, spaceHomeM, spaceNavM, spacePlanet, spaceTravel } from '../assets/portfolio-img'
-import { JavascriptLogo, NodeLogo, ReactLogo, TailwindLogo } from '../assets'
+import { JavascriptLogo, NodeLogo, ReactLogo, TailwindLogo, TypescriptLogo } from '../assets'
 import { useHashScroll } from '../hooks'
 import './Portfolio.scss'
 
@@ -72,9 +72,9 @@ const Project = ({ title, description, array, arrayMobile }: { title: string, de
               <>
                 <h3>{title}</h3>
                 <p>{description}</p>
-                <div>
+                <div className='tech-logos'>
                   <ReactLogo />
-                  <JavascriptLogo />
+                  <TypescriptLogo />
                   <TailwindLogo />
                   <NodeLogo />
                 </div>
