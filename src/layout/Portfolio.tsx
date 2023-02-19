@@ -5,13 +5,14 @@ import { useTranslation } from 'react-i18next'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 import { aqariFormM, aqariHome, aqariLatest, aqariLogin, aqariPostM, aqariPostsM, dalleCreate, dalleGenerate, dalleGenerateM, dalleHome, dalleHome2, dalleHomeM, dalleSearchM, kanbanDarkHome, kanbanEmptyHome, kanbanHome, kanbanModal, kanbanModalM, kanbanNavM, spaceHome, spaceHomeM, spaceNavM, spacePlanet, spaceTravel } from '../assets/portfolio-img'
+import { JavascriptLogo, NodeLogo, ReactLogo, TailwindLogo } from '../assets'
 import { useHashScroll } from '../hooks'
 import './Portfolio.scss'
 
 const Portfolio = () => {
   const { t } = useTranslation()
   const portfolioRef = useRef<HTMLInputElement>(null)
-  // const { ref, inView } = useInView({ threshold: .6 })
+  const { ref, inView, entry } = useInView({ threshold: .1 })
 
   // useHashScroll(portfolioRef.current, 'portfolio', inView)
 
@@ -28,49 +29,67 @@ const Portfolio = () => {
     <section id='portfolio'>
       <h2 className='pl'>{t('portfolio.title')}</h2>
 
-      <InView >
-        {({ inView, ref, entry }) => (
-          <div className='project first-project' ref={ref}>
-            <div className='project-desc'>
-              <h3>{t('portfolio.dalle')}</h3>
-              <p>{t('portfolio.dalleDescription')}</p>
-            </div>
-            <div className={`project-cards ${inView ? 'enter' : 'before'}`}>
-              <Card array={dalleArray} />
-              <Card array={dalleMobileArray} mobile={true} />
-            </div>
-          </div>
-        )}
-      </InView>
+      <Project
+        title={t('portfolio.dalle')}
+        description={t('portfolio.dalleDescription')}
+        array={dalleArray}
+        arrayMobile={dalleMobileArray}
+      />
 
-      <div className='project'>
-        <h3>Kanban</h3>
-        <div className='project-cards'>
-          <Card array={kanbanArray} />
-          <Card array={kanbanArrayMobile} mobile={true} />
-        </div>
-      </div>
+      <Project
+        title={'Kanban'}
+        description={t('portfolio.dalleDescription')}
+        array={kanbanArray}
+        arrayMobile={kanbanArrayMobile}
+      />
 
-      <div className='project'>
-        <h3>Aqari</h3>
-        <div className='project-cards'>
-          <Card array={aqariArray} />
-          <Card array={aqariArrayMobile} mobile={true} />
-        </div>
-      </div>
+      <Project
+        title={'Aqari'}
+        description={t('portfolio.dalleDescription')}
+        array={aqariArray}
+        arrayMobile={aqariArrayMobile}
+      />
 
-      <div className='project'>
-        <h3>Space Tourism</h3>
-        <div className='project-cards'>
-          <Card array={spaceArray} />
-          <Card array={spaceArrayMobile} mobile={true} />
-        </div>
-      </div>
+      <Project
+        title={'Space Tourism'}
+        description={t('portfolio.dalleDescription')}
+        array={spaceArray}
+        arrayMobile={spaceArrayMobile}
+      />
     </section>
   )
 }
 
 export default Portfolio
+
+const Project = ({ title, description, array, arrayMobile }: { title: string, description: string, array: string[], arrayMobile: string[] }) => {
+  return (
+    <InView threshold={.5}>
+      {({ inView, ref }) => (
+        <div className='project first-project' ref={ref}>
+          <div className={`project-desc ${inView ? 'enter-content' : 'hide-right'}`}>
+            {inView && (
+              <>
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <div>
+                  <ReactLogo />
+                  <JavascriptLogo />
+                  <TailwindLogo />
+                  <NodeLogo />
+                </div>
+              </>
+            )}
+          </div>
+          <div className={`project-cards ${inView ? 'enter-content' : 'hide-left'}`}>
+            <Card array={array} />
+            <Card array={arrayMobile} mobile={true} />
+          </div>
+        </div>
+      )}
+    </InView>
+  )
+}
 
 const Card = ({ array, mobile }: { array: string[], mobile?: boolean }) => {
   const { i18n } = useTranslation()
@@ -99,7 +118,6 @@ const Card = ({ array, mobile }: { array: string[], mobile?: boolean }) => {
               src={img}
               alt=''
               width={mobile ? 160 : 500}
-            // effect='blur'
             />
           ))}
         </div>
