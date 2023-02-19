@@ -1,18 +1,16 @@
-import { MouseEvent, useEffect, useRef, useState } from 'react'
-import { InView, useInView } from 'react-intersection-observer'
-import { mergeRefs } from 'react-merge-refs'
+import { useEffect, useState } from 'react'
+import { InView } from 'react-intersection-observer'
 import { useTranslation } from 'react-i18next'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 import { aqariFormM, aqariHome, aqariLatest, aqariLogin, aqariPostM, aqariPostsM, dalleCreate, dalleGenerate, dalleGenerateM, dalleHome, dalleHome2, dalleHomeM, dalleSearchM, kanbanDarkHome, kanbanEmptyHome, kanbanHome, kanbanModal, kanbanModalM, kanbanNavM, spaceHome, spaceHomeM, spaceNavM, spacePlanet, spaceTravel } from '../assets/portfolio-img'
-import { JavascriptLogo, NodeLogo, ReactLogo, TailwindLogo, TypescriptLogo } from '../assets'
-import { useHashScroll } from '../hooks'
+import { NodeLogo, ReactLogo, TailwindLogo, TypescriptLogo } from '../assets'
+// import { useHashScroll } from '../hooks'
 import './Portfolio.scss'
 
 const Portfolio = () => {
   const { t } = useTranslation()
-  const portfolioRef = useRef<HTMLInputElement>(null)
-  const { ref, inView, entry } = useInView({ threshold: .1 })
+  // const portfolioRef = useRef<HTMLInputElement>(null)
+  // const { ref, inView, entry } = useInView({ threshold: .1 })
 
   // useHashScroll(portfolioRef.current, 'portfolio', inView)
 
@@ -126,21 +124,21 @@ const Card = ({ array, mobile }: { array: string[], mobile?: boolean }) => {
   )
 }
 
-const useMouseMove = () => {
-  const root = document.documentElement
+// const useMouseMove = () => {
+//   const root = document.documentElement
 
-  const onMouseMove = (e: MouseEvent) => {
-    const middleX = window.innerWidth / 2
-    const middleY = window.innerHeight / 2
+//   const onMouseMove = (e: MouseEvent) => {
+//     const middleX = window.innerWidth / 2
+//     const middleY = window.innerHeight / 2
 
-    const offsetX = ((e.clientX) - middleX) / middleX
-    const offsetY = ((e.clientY) - middleY) / middleY
+//     const offsetX = ((e.clientX) - middleX) / middleX
+//     const offsetY = ((e.clientY) - middleY) / middleY
 
-    root.style.setProperty('--mouse-x', `${-1 * offsetY * 25}deg`)
-    root.style.setProperty('--mouse-y', `${offsetX * 25}deg`)
-  }
-  return onMouseMove
-}
+//     root.style.setProperty('--mouse-x', `${-1 * offsetY * 25}deg`)
+//     root.style.setProperty('--mouse-y', `${offsetX * 25}deg`)
+//   }
+//   return onMouseMove
+// }
 
 const useCurrentPosition = (length: number) => {
   const [currentPosition, setCurrentPosition] = useState(0)
