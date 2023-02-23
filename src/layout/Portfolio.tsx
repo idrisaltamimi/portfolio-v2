@@ -1,37 +1,30 @@
-import { useEffect, useState } from 'react'
-import { InView } from 'react-intersection-observer'
+import { ReactElement, useEffect, useRef, useState } from 'react'
+import { InView, useInView } from 'react-intersection-observer'
 import { useTranslation } from 'react-i18next'
+import { mergeRefs } from 'react-merge-refs'
 
-import { aqariFormM, aqariHome, aqariLatest, aqariLogin, aqariPostM, aqariPostsM, dalleCreate, dalleGenerate, dalleGenerateM, dalleHome, dalleHome2, dalleHomeM, dalleSearchM, kanbanDarkHome, kanbanEmptyHome, kanbanHome, kanbanModal, kanbanModalM, kanbanNavM, spaceHome, spaceHomeM, spaceNavM, spacePlanet, spaceTravel } from '../assets/portfolio-img'
-import { NodeLogo, ReactLogo, TailwindLogo, TypescriptLogo } from '../assets'
-// import { useHashScroll } from '../hooks'
+import { dalleArray, dalleMobileArray, kanbanArray, kanbanArrayMobile, aqariArray, aqariArrayMobile, spaceArray, spaceArrayMobile } from '../assets/portfolio-img'
+import { CssLogo, JavascriptLogo, MongoLogo, NodeLogo, ReactLogo, TailwindLogo, TypescriptLogo } from '../assets'
+import { useHashScroll } from '../hooks'
 import './Portfolio.scss'
 
 const Portfolio = () => {
   const { t } = useTranslation()
-  // const portfolioRef = useRef<HTMLInputElement>(null)
-  // const { ref, inView, entry } = useInView({ threshold: .1 })
+  const portfolioRef = useRef<HTMLDivElement>(null)
+  const { ref, inView } = useInView({ threshold: .6 })
 
-  // useHashScroll(portfolioRef.current, 'portfolio', inView)
-
-  const dalleArray = [dalleHome, dalleCreate, dalleGenerate, dalleHome2, dalleHome]
-  const dalleMobileArray = [dalleHomeM, dalleSearchM, dalleGenerateM, dalleHomeM]
-  const kanbanArray = [kanbanHome, kanbanEmptyHome, kanbanDarkHome, kanbanModal, kanbanHome]
-  const kanbanArrayMobile = [kanbanNavM, kanbanModalM, kanbanNavM]
-  const aqariArray = [aqariHome, aqariLatest, aqariLogin, aqariHome]
-  const aqariArrayMobile = [aqariPostsM, aqariFormM, aqariPostM, aqariPostsM]
-  const spaceArray = [spaceHome, spacePlanet, spaceTravel, spaceHome]
-  const spaceArrayMobile = [spaceHomeM, spaceNavM, spaceHomeM]
+  useHashScroll(portfolioRef.current, 'portfolio', inView)
 
   return (
     <section id='portfolio'>
-      <h2 className='pl'>{t('portfolio.title')}</h2>
+      <h2 ref={mergeRefs([portfolioRef, ref])} className='section-title pl'>{t('portfolio.title')}</h2>
 
       <Project
         title={t('portfolio.dalle')}
         description={t('portfolio.dalleDescription')}
         array={dalleArray}
         arrayMobile={dalleMobileArray}
+        arrayLogos={[<ReactLogo />, <TypescriptLogo />, <TailwindLogo />, <NodeLogo />, <MongoLogo />]}
       />
 
       <Project
@@ -39,6 +32,7 @@ const Portfolio = () => {
         description={t('portfolio.dalleDescription')}
         array={kanbanArray}
         arrayMobile={kanbanArrayMobile}
+        arrayLogos={[<ReactLogo />, <TypescriptLogo />, <CssLogo />, <NodeLogo />, <MongoLogo />]}
       />
 
       <Project
@@ -46,6 +40,7 @@ const Portfolio = () => {
         description={t('portfolio.dalleDescription')}
         array={aqariArray}
         arrayMobile={aqariArrayMobile}
+        arrayLogos={[<ReactLogo />, <JavascriptLogo />, <CssLogo />, <NodeLogo />, <MongoLogo />]}
       />
 
       <Project
@@ -53,6 +48,7 @@ const Portfolio = () => {
         description={t('portfolio.dalleDescription')}
         array={spaceArray}
         arrayMobile={spaceArrayMobile}
+        arrayLogos={[<ReactLogo />, <JavascriptLogo />, <CssLogo />]}
       />
     </section>
   )
@@ -60,28 +56,25 @@ const Portfolio = () => {
 
 export default Portfolio
 
-const Project = ({ title, description, array, arrayMobile }: { title: string, description: string, array: string[], arrayMobile: string[] }) => {
+const Project = ({
+  title, description, array, arrayMobile, arrayLogos
+}: {
+  title: string, description: string, array: string[], arrayMobile: string[], arrayLogos: ReactElement[]
+}) => {
   return (
     <InView threshold={.5}>
       {({ inView, ref }) => (
         <div className='project first-project' ref={ref}>
           <div className={`project-desc ${inView ? 'enter-content' : 'hide-right'}`}>
-            {inView && (
-              <>
-                <h3>{title}</h3>
-                <p>{description}</p>
-                <div className='tech-logos'>
-                  <ReactLogo />
-                  <TypescriptLogo />
-                  <TailwindLogo />
-                  <NodeLogo />
-                </div>
-              </>
-            )}
+            <h3>{title}</h3>
+            <p>{description}</p>
+            <div className='tech-logos'>
+              {arrayLogos.map(logo => <div key={crypto.randomUUID()}>{logo}</div>)}
+            </div>
           </div>
           <div className={`project-cards ${inView ? 'enter-content' : 'hide-left'}`}>
             <Card array={array} />
-            <Card array={arrayMobile} mobile={true} />
+            {/* <Card array={arrayMobile} mobile={true} /> */}
           </div>
         </div>
       )}
@@ -116,6 +109,7 @@ const Card = ({ array, mobile }: { array: string[], mobile?: boolean }) => {
               src={img}
               alt=''
               width={mobile ? 160 : 500}
+              loading='lazy'
             />
           ))}
         </div>

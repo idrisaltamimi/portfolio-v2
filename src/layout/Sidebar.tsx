@@ -4,16 +4,16 @@ import { useContext, useEffect, useState } from 'react'
 
 import { ThemeContext, ThemeContextType } from '../context'
 import { useHashNavigate } from '../hooks'
-import { ContactIcon, HomeIcon, LanguageIcon, PortfolioIcon, PriceIcon, ServiceIcon, MoonIcon, SunIcon } from '../assets'
+import { ContactIcon, HomeIcon, LanguageIcon, PortfolioIcon, MoonIcon, SunIcon } from '../assets'
 import './Sidebar.scss'
 
 const navLinks = [
   { name: 'home', icon: <HomeIcon /> },
   { name: 'portfolio', icon: <PortfolioIcon /> },
-  { name: 'services', icon: <ServiceIcon /> },
-  { name: 'prices', icon: <PriceIcon /> },
   { name: 'contact', icon: <ContactIcon /> },
 ]
+// { name: 'services', icon: <ServiceIcon /> },
+// { name: 'prices', icon: <PriceIcon /> },
 
 const Sidebar = () => {
   const { theme, toggleMenu, closeMenu, menu, toggleMode } = useContext(ThemeContext) as ThemeContextType
@@ -52,7 +52,7 @@ const Sidebar = () => {
 
         <nav className='header-section'>
           {navItems.map((navItem, index) => {
-            const navClass = currentHash === navLinks[index].name ? 'nav-row nav-row-active' : 'nav-row'
+            const navClass = currentHash === navLinks[index]?.name ? 'nav-row nav-row-active' : 'nav-row'
             return (
               <button key={navItem} onClick={() => onNavClick(index)} className={navClass}>
                 <div className='nav-icon'>{navLinks[index].icon}</div>

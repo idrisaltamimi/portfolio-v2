@@ -7,14 +7,14 @@ import { useNavigate } from 'react-router-dom'
 import { Button } from '../components'
 import { ThemeContext, ThemeContextType } from '../context'
 import { useHashScroll } from '../hooks'
-import './Home.scss'
 import { backgroundDark, backgroundLight, heroDark400, heroDark600, heroDark800, heroLight400, heroLight600, heroLight800 } from '../assets'
+import './Home.scss'
 
 const Home = () => {
   const { getHash, theme } = useContext(ThemeContext) as ThemeContextType
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const homeRef = useRef<HTMLInputElement>(null)
+  const homeRef = useRef<HTMLDivElement>(null)
   const { ref, inView } = useInView({ threshold: .6 })
 
   useHashScroll(homeRef.current, 'home', inView)
@@ -30,7 +30,6 @@ const Home = () => {
 
   return (
     <section ref={mergeRefs([homeRef, ref])} id='home' className='home'>
-
       <img src={backgroundImage} alt='' className='background-image' data-theme={theme} />
 
       <div className='home-hero'>

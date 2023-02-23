@@ -9,7 +9,6 @@ import './App.scss'
 
 const App = () => {
   useSwitchPageDirecting()
-  useStoredLng()
   const { menu } = useContext(ThemeContext) as ThemeContextType
 
   // const onMouseMove = useMouseMove()
@@ -35,16 +34,6 @@ const useSwitchPageDirecting = () => {
   const { i18n } = useTranslation()
 
   useEffect(() => {
-    const direction = i18n.language === 'ar' ? 'rtl' : 'ltr'
-
-    document.body.dir = direction
-  }, [i18n.language])
-}
-
-const useStoredLng = () => {
-  const { i18n } = useTranslation()
-
-  useEffect(() => {
     const currentLng = localStorage.getItem('lng') || 'ar'
 
     i18n.changeLanguage(currentLng)
@@ -52,4 +41,10 @@ const useStoredLng = () => {
     window.location.hash = '#/#home'
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  useEffect(() => {
+    const direction = i18n.language === 'ar' ? 'rtl' : 'ltr'
+
+    document.body.dir = direction
+  }, [i18n.language])
 }

@@ -53,9 +53,9 @@
 
   --clr-accent: #87b7f2;
   --clr-accentHover: #5e9fed;
-  --clr-outlinedHover: #062932;
+  --clr-outlinedHover: #0A4652;
 
-  --clr-bg: #03161B;
+  --clr-bg: #041F25;
   --clr-shadow: #ffffff33;
   --clr-transparent: rgba(0, 0, 0, .4);
 }
@@ -105,7 +105,6 @@ footer,
 
 section {
   min-height: 100vh;
-  height: 100%;
 }
 
 h1,
@@ -170,4 +169,10 @@ p {
   .pl {
     padding-inline: 120px;
   }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: .75em;
 }

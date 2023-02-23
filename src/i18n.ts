@@ -11,6 +11,8 @@ import {
   portfolioAr,
   servicesAr,
   servicesEn,
+  contactAr,
+  contactEn
 } from './locales'
 
 i18n
@@ -29,6 +31,7 @@ i18n
           home: { ...homeEn },
           portfolio: { ...portfolioEn },
           services: { ...servicesEn },
+          contact: { ...contactEn },
           or: 'or'
         }
       },
@@ -38,6 +41,7 @@ i18n
           home: { ...homeAr },
           portfolio: { ...portfolioAr },
           services: { ...servicesAr },
+          contact: { ...contactAr },
           or: 'أو'
         }
       }

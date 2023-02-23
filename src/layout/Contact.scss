@@ -1,0 +1,245 @@
+#contact {
+  padding-top: 4em;
+  padding-inline: 0;
+  display: grid;
+  place-items: center;
+
+  h2 {
+    justify-self: start;
+  }
+
+  form {
+    align-self: start;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+
+    .textfield,
+    button {
+      max-width: 400px;
+      width: 100%;
+    }
+  }
+}
+
+.form-wrapper {
+  ul {
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    li {
+      list-style-type: none;
+
+      a {
+        outline: none;
+
+        svg {
+          overflow: visible;
+          width: 32px;
+          height: 32px;
+          transition: filter 300ms linear;
+
+          path {
+            fill: var(--clr-dark);
+            transform: translateY(0);
+            transition: fill 200ms linear, transform 300ms ease-in-out;
+          }
+        }
+
+        &:hover,
+        &:focus {
+          filter: drop-shadow(0 .4rem 0px var(--clr-outlinedHover));
+
+          path {
+            fill: var(--clr-accentHover);
+            transform: translateY(-.5rem);
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.form-wrapper {
+  img {
+    max-width: 400px;
+    transition: transform 300ms linear, opacity 300ms linear;
+  }
+}
+
+body[dir='rtl'] {
+  .envelope-left {
+    display: none;
+  }
+}
+
+body[dir='ltr'] {
+  .envelope-right {
+    display: none;
+  }
+}
+
+.form-wrapper {
+  padding: 2em;
+  width: 100%;
+  display: grid;
+  grid-template: 350px 1fr 60px / 1fr;
+  justify-items: center;
+  row-gap: 4em;
+
+  form {
+    grid-row: 2;
+  }
+
+  img {
+    grid-row: 1;
+    align-self: center;
+  }
+
+  ul {
+    grid-row: 3;
+    align-self: start;
+  }
+}
+
+.success {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1.25em 2em;
+  background-color: var(--clr-light);
+  color: var(--clr-dark);
+  box-shadow: 0 0 5px 0 var(--clr-shadow);
+  border-radius: 22px;
+  animation: success 300ms linear forwards;
+
+  display: flex;
+  align-items: center;
+  gap: .5em;
+
+  svg path {
+    fill: #179617;
+  }
+}
+
+@keyframes success {
+  to {
+    top: 2em;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  .form-wrapper {
+    grid-template: 1fr 60px / 1fr 1fr;
+    column-gap: 10em;
+    row-gap: 0;
+
+    form {
+      grid-column: 1;
+      grid-row: 1 / -1;
+      justify-self: end;
+    }
+
+    img {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: center;
+      justify-self: start;
+    }
+
+    ul {
+      grid-column: 2;
+      grid-row: 2;
+      align-self: start;
+      justify-self: start;
+    }
+  }
+}
+
+// observer
+.hide-contact {
+  transform: translateY(-10rem);
+  opacity: 0;
+  transition: transform 300ms linear, opacity 300ms linear;
+
+}
+
+.show-contact {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 300ms linear, opacity 300ms linear;
+}
+
+// Loader
+.wrapper-loader {
+  aspect-ratio: 1 / 1;
+  width: 20px;
+  border-radius: 50%;
+  perspective: 500px;
+}
+
+.line-loader {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.line-loader:nth-child(1) {
+  border-bottom: 3px solid var(--clr-variant);
+  transform: rotateX(35deg) rotateY(-45deg);
+  animation: one 1s linear infinite;
+}
+
+.line-loader:nth-child(2) {
+  border-right: 3px solid rgba(99, 95, 199, .75);
+  transform: rotateX(50deg) rotateY(10deg);
+  animation: two 1s linear infinite;
+}
+
+.line-loader:nth-child(3) {
+  border-top: 3px solid rgba(99, 95, 199, .5);
+  transform: rotateX(35deg) rotateY(55deg);
+  animation: three 1s linear infinite;
+}
+
+.line-loader-white:nth-child(1) {
+  border-bottom: 3px solid #fff;
+}
+
+.line-loader-white:nth-child(2) {
+  border-right: 3px solid rgba(255, 255, 255, .75);
+}
+
+.line-loader-white:nth-child(3) {
+  border-top: 3px solid rgba(255, 255, 255, .5);
+}
+
+@keyframes one {
+  to {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  }
+}
+
+@keyframes two {
+  to {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  }
+}
+
+@keyframes three {
+  to {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
+}

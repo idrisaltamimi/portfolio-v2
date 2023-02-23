@@ -8,18 +8,19 @@
   justify-content: center;
   text-align: center;
   gap: 4em;
+
+  .background-image {
+    mask:
+      url('../assets/images/wave.svg') bottom/contain no-repeat,
+      linear-gradient(#fff 0 0);
+    mask-composite: destination-out;
+    -webkit-mask:
+      url('../assets/images/wave.svg') bottom/contain no-repeat,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+  }
 }
 
-.background-image {
-  mask:
-    url('../assets/images/wave.svg') bottom/contain no-repeat,
-    linear-gradient(#fff 0 0);
-  mask-composite: destination-out;
-  -webkit-mask:
-    url('../assets/images/wave.svg') bottom/contain no-repeat,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-}
 
 .home-hero {
   display: grid;

@@ -26,32 +26,22 @@ import spaceNavM from './space-nav-m.png'
 import spacePlanet from './space-planets.png'
 import spaceTravel from './space-travel.png'
 
+const dalleArray = [dalleHome, dalleCreate, dalleGenerate, dalleHome2, dalleHome]
+const dalleMobileArray = [dalleHomeM, dalleSearchM, dalleGenerateM, dalleHomeM]
+const kanbanArray = [kanbanHome, kanbanEmptyHome, kanbanDarkHome, kanbanModal, kanbanHome]
+const kanbanArrayMobile = [kanbanNavM, kanbanModalM, kanbanNavM]
+const aqariArray = [aqariHome, aqariLatest, aqariLogin, aqariHome]
+const aqariArrayMobile = [aqariPostsM, aqariFormM, aqariPostM, aqariPostsM]
+const spaceArray = [spaceHome, spacePlanet, spaceTravel, spaceHome]
+const spaceArrayMobile = [spaceHomeM, spaceNavM, spaceHomeM]
+
 export {
-  aqariFormM,
-  aqariHome,
-  aqariLatest,
-  aqariLogin,
-  aqariPostM,
-  aqariPostsM,
-
-  dalleCreate,
-  dalleGenerate,
-  dalleGenerateM,
-  dalleHome,
-  dalleHome2,
-  dalleHomeM,
-  dalleSearchM,
-
-  kanbanDarkHome,
-  kanbanEmptyHome,
-  kanbanHome,
-  kanbanModal,
-  kanbanModalM,
-  kanbanNavM,
-
-  spaceHome,
-  spaceHomeM,
-  spaceNavM,
-  spacePlanet,
-  spaceTravel
+  dalleArray,
+  dalleMobileArray,
+  kanbanArray,
+  kanbanArrayMobile,
+  aqariArray,
+  aqariArrayMobile,
+  spaceArray,
+  spaceArrayMobile
 }

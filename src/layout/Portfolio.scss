@@ -4,27 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  // gap: 6em;
   color: var(--clr-dark);
-
-  h2 {
-    position: relative;
-    align-self: flex-start;
-
-    &::after,
-    &::before {
-      content: '';
-      position: absolute;
-      background-color: var(--clr-shadow);
-    }
-
-    &::after {
-      top: 100%;
-      left: 0;
-      height: 2px;
-      width: 100%;
-    }
-  }
 }
 
 .project {
@@ -32,6 +12,7 @@
   background: linear-gradient(to bottom, transparent, var(--clr-transparent));
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 5em;
@@ -57,15 +38,13 @@
 
       svg {
         path {
-          fill: var(--clr-dark);
-          opacity: .8;
-          transition: fill 300ms ease-in-out, opacity 300ms ease-in-out;
+          fill: var(--clr-grey);
+          transition: fill 300ms ease-in-out;
         }
 
         &:hover {
           path {
-            fill: var(--clr-accent);
-            opacity: 1;
+            fill: var(--clr-accentHover);
           }
         }
       }
@@ -77,29 +56,17 @@
   padding-top: 12em;
 }
 
-.project:nth-child(odd) {
-  .mobile-card {
-    right: -20%;
-  }
-}
+// .project:nth-child(odd) {
+//   .mobile-card {
+//     right: -20%;
+//   }
+// }
 
-.project:nth-child(even) {
-  .mobile-card {
-    left: -20%;
-  }
-}
-
-body[dir='rtl'] {
-  .project:nth-child(odd) {
-    flex-direction: row-reverse;
-  }
-}
-
-body[dir='ltr'] {
-  .project:nth-child(even) {
-    flex-direction: row-reverse;
-  }
-}
+// .project:nth-child(even) {
+//   .mobile-card {
+//     left: -20%;
+//   }
+// }
 
 .project+.project {
   padding-top: 6em;
@@ -125,10 +92,8 @@ body[dir='ltr'] {
   width: 100%;
   border-radius: 12px;
 
-  transform: perspective(5000px) rotateX(20deg) rotateY(-20deg);
+  // transform: perspective(8000px) rotateX(20deg) rotateY(-20deg);
   transform-style: preserve-3d;
-  animation: rotate3d 40s linear infinite alternate,
-    rotate3dMobile 40s linear infinite alternate;
 
   display: flex;
   justify-content: center;
@@ -153,7 +118,14 @@ body[dir='ltr'] {
     inset: -1em;
     background-color: #fff;
     transform: translateZ(-30px);
-    box-shadow: 0 0 10px 0 var(--clr-light), 0 0 14px 0 var(--clr-dark);
+    box-shadow:
+      1px 1px 0 0 rgb(30, 30, 30),
+      2px 2px 0 0 rgb(35, 35, 35),
+      3px 3px 0 0 rgb(40, 40, 40),
+      4px 4px 0 0 rgb(45, 45, 45),
+      5px 5px 0 0 rgb(50, 50, 50),
+      6px 6px 0 0 rgb(55, 55, 55),
+      6px 6px 5px 0 rgb(20, 20, 20);
   }
 }
 
@@ -175,6 +147,15 @@ body[dir='ltr'] {
     border-radius: inherit;
     object-fit: cover;
     object-position: top;
+
+    box-shadow:
+      1px 1px 0 0 rgb(30, 30, 30),
+      2px 2px 0 0 rgb(35, 35, 35),
+      3px 3px 0 0 rgb(40, 40, 40),
+      4px 4px 0 0 rgb(45, 45, 45),
+      5px 5px 0 0 rgb(50, 50, 50),
+      6px 6px 0 0 rgb(55, 55, 55),
+      6px 6px 5px 0 rgb(20, 20, 20);
   }
 }
 
@@ -183,7 +164,6 @@ body[dir='ltr'] {
   top: 20%;
   max-width: 140px;
   height: 250px;
-  transform: perspective(5000px) rotateX(-20deg) rotateY(20deg);
 
   .slider {
     grid-template-columns: repeat(100, minmax(140px, 100px));
@@ -191,54 +171,31 @@ body[dir='ltr'] {
   }
 }
 
-@keyframes rotate3d {
-  to {
-    transform: perspective(5000px) rotateX(-20deg) rotateY(20deg);
-  }
-}
-
-@keyframes rotate3dMobile {
-  to {
-    transform: perspective(5000px) rotateX(20deg) rotateY(-20deg);
-  }
-}
-
-// body[dir='rtl'] {
-// .hide-left {
-//   transform: translateX(-500px);
-//   opacity: 0;
-// }
-
-// .hide-right {
-//   transform: translateX(500px);
-//   opacity: 0;
-// }
-
 .enter-content {
   transform: translateX(0);
   opacity: 1;
 }
 
-.project:nth-child(odd) {
+.project {
   .hide-left {
-    transform: translateX(500px);
+    transform: translateX(200px);
     opacity: 0;
   }
 
   .hide-right {
-    transform: translateX(-500px);
+    transform: translateX(-200px);
     opacity: 0;
   }
 }
 
-.project:nth-child(even) {
+.project {
   .hide-left {
-    transform: translateX(-500px);
+    transform: translateX(-200px);
     opacity: 0;
   }
 
   .hide-right {
-    transform: translateX(500px);
+    transform: translateX(200px);
     opacity: 0;
   }
 }
