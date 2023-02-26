@@ -21,8 +21,8 @@ const Home = () => {
   // const onMouseMove = useMouseMove()
 
   const onClick = () => {
-    getHash('/#portfolio')
-    navigate(`/#portfolio`)
+    getHash('/#contact')
+    navigate(`/#contact`)
   }
 
   // const heroImage = theme === 'light' ? heroLight : heroDark
@@ -40,20 +40,21 @@ const Home = () => {
         </div>
         <h2 className='home-subtitle'>{t('home.subtitle')}</h2>
         <div className='home-buttons'>
-          <Button
+          {/* <Button
             color='light'
             size='large'
             onClick={onClick}
           >{t('home.contact')}
           </Button>
-          <p>{t('or')}</p>
+          <p>{t('or')}</p> */}
           <div className='mission-action'>
             <Button
-              color='outlined'
+              color='light'
               size='large'
               to={'#contact'}
+              onClick={onClick}
             >
-              {t('home.hireMe')}
+              {t('home.contact')}
             </Button>
             <HighlightArrow />
           </div>
@@ -73,9 +74,6 @@ const Home = () => {
           </picture>
         )}
       </div>
-      {/* <p className='home-about border-theme'>{t('home.about')}</p> */}
-
-      {/* <p className='subtitle'>The Prophet (ﷺ) said, 'No one of you becomes a true believer until he likes for his brother what he likes for himself'.</p> */}
     </section>
   )
 }

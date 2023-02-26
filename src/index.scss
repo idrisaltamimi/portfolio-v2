@@ -167,6 +167,15 @@ p {
   section,
   footer,
   .pl {
+    padding-inline: 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  section,
+  footer,
+  .pl {
     padding-inline: 120px;
   }
 }
