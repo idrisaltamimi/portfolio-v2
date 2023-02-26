@@ -32,6 +32,7 @@ i18n
           portfolio: { ...portfolioEn },
           services: { ...servicesEn },
           contact: { ...contactEn },
+          footer: 'Idris AlTamimi 2023',
           or: 'or'
         }
       },
@@ -42,6 +43,7 @@ i18n
           portfolio: { ...portfolioAr },
           services: { ...servicesAr },
           contact: { ...contactAr },
+          footer: 'إدريس التميمي ٢٠٢٣',
           or: 'أو'
         }
       }

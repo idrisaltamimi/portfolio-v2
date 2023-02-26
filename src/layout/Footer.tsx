@@ -1,9 +1,13 @@
 
-const Footer = () => {
-  return (
-    <div>
+import { useTranslation } from 'react-i18next'
+import './Footer.scss'
 
-    </div>
+const Footer = () => {
+  const { t } = useTranslation()
+  return (
+    <footer>
+      <p>&copy; {t('footer')}</p>
+    </footer>
   )
 }
 

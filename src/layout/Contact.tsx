@@ -17,12 +17,26 @@ const Contact = () => {
 
   const [success, setSuccess] = useState(false)
   const [sending, setSending] = useState(false)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [nameError, setNameError] = useState(false)
+  const [emailError, setEmailError] = useState(false)
+  const [messageError, setMessageError] = useState(false)
+
 
   const { ref, inView } = useInView({ threshold: .6 })
   useHashScroll(contactRef.current, 'contact', inView)
 
   const sendEmail = (e: FormEvent) => {
     e.preventDefault()
+    if (!name || !email || !message) {
+      !name ? setNameError(true) : setNameError(false)
+      !email ? setEmailError(true) : setEmailError(false)
+      !message ? setMessageError(true) : setMessageError(false)
+      return
+    }
+
     const target = e.target as HTMLFormElement
     setSending(true)
 
@@ -31,6 +45,12 @@ const Contact = () => {
         setSuccess(true)
         setSending(false)
         target.reset()
+        setName('')
+        setEmail('')
+        setMessage('')
+        setNameError(false)
+        setEmailError(false)
+        setMessageError(false)
       }, (error) => {
         console.log(error)
         setSuccess(false)
@@ -66,16 +86,25 @@ const Contact = () => {
               label={t('contact.email')}
               id='email'
               type='email'
+              state={email}
+              setState={setEmail}
+              error={emailError}
             />
             <TextField
               label={t('contact.name')}
               id='name'
               type='name'
+              state={name}
+              setState={setName}
+              error={nameError}
             />
             <TextField
               label={t('contact.message')}
               id='message'
               type='textarea'
+              state={message}
+              setState={setMessage}
+              error={messageError}
             />
 
             <Button

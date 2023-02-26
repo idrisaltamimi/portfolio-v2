@@ -33,3 +33,9 @@
   min-height: 200px;
   height: 100%;
 }
+
+.textfield[data-error=true] {
+  .input {
+    outline-color: red;
+  }
+}

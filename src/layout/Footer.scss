@@ -1,0 +1,15 @@
+footer {
+  min-height: 100px;
+  background-color: var(--clr-light) !important;
+  color: var(--clr-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  mask: url('../assets/images/wave-3.svg') bottom/cover no-repeat;
+  -webkit-mask: url('../assets/images/wave-3.svg') bottom/cover no-repeat;
+
+  p {
+    font-weight: 700;
+  }
+}

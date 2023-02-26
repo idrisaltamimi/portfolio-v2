@@ -1,7 +1,9 @@
-import { ReactElement, useEffect, useRef, useState } from 'react'
+import { FC, ReactElement, useEffect, useRef, useState } from 'react'
 import { InView, useInView } from 'react-intersection-observer'
 import { useTranslation } from 'react-i18next'
 import { mergeRefs } from 'react-merge-refs'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 import { dalleArray, dalleMobileArray, kanbanArray, kanbanArrayMobile, aqariArray, aqariArrayMobile, spaceArray, spaceArrayMobile } from '../assets/portfolio-img'
 import { CssLogo, JavascriptLogo, MongoLogo, NodeLogo, ReactLogo, TailwindLogo, TypescriptLogo } from '../assets'
@@ -11,7 +13,7 @@ import './Portfolio.scss'
 const Portfolio = () => {
   const { t } = useTranslation()
   const portfolioRef = useRef<HTMLDivElement>(null)
-  const { ref, inView } = useInView({ threshold: .6 })
+  const { ref, inView } = useInView({ threshold: 1 })
 
   useHashScroll(portfolioRef.current, 'portfolio', inView)
 
@@ -28,24 +30,24 @@ const Portfolio = () => {
       />
 
       <Project
-        title={'Kanban'}
-        description={t('portfolio.dalleDescription')}
+        title={t('portfolio.kanban')}
+        description={t('portfolio.kanbanDescription')}
         array={kanbanArray}
         arrayMobile={kanbanArrayMobile}
         arrayLogos={[<ReactLogo />, <TypescriptLogo />, <CssLogo />, <NodeLogo />, <MongoLogo />]}
       />
 
       <Project
-        title={'Aqari'}
-        description={t('portfolio.dalleDescription')}
+        title={t('portfolio.aqari')}
+        description={t('portfolio.aqariDescription')}
         array={aqariArray}
         arrayMobile={aqariArrayMobile}
         arrayLogos={[<ReactLogo />, <JavascriptLogo />, <CssLogo />, <NodeLogo />, <MongoLogo />]}
       />
 
       <Project
-        title={'Space Tourism'}
-        description={t('portfolio.dalleDescription')}
+        title={t('portfolio.space')}
+        description={t('portfolio.spaceDescription')}
         array={spaceArray}
         arrayMobile={spaceArrayMobile}
         arrayLogos={[<ReactLogo />, <JavascriptLogo />, <CssLogo />]}
@@ -56,11 +58,15 @@ const Portfolio = () => {
 
 export default Portfolio
 
-const Project = ({
-  title, description, array, arrayMobile, arrayLogos
-}: {
-  title: string, description: string, array: string[], arrayMobile: string[], arrayLogos: ReactElement[]
-}) => {
+interface ProjectType {
+  title: string,
+  description: string,
+  array: string[],
+  arrayMobile: string[],
+  arrayLogos: ReactElement[],
+}
+
+const Project: FC<ProjectType> = ({ title, description, array, arrayMobile, arrayLogos }) => {
   return (
     <InView threshold={.5}>
       {({ inView, ref }) => (
@@ -74,7 +80,7 @@ const Project = ({
           </div>
           <div className={`project-cards ${inView ? 'enter-content' : 'hide-left'}`}>
             <Card array={array} />
-            {/* <Card array={arrayMobile} mobile={true} /> */}
+            <Card array={arrayMobile} mobile={true} />
           </div>
         </div>
       )}
@@ -83,36 +89,17 @@ const Project = ({
 }
 
 const Card = ({ array, mobile }: { array: string[], mobile?: boolean }) => {
-  const { i18n } = useTranslation()
-  const currentPosition = useCurrentPosition(array.length)
-
-  const style = i18n.language === 'ar' ? (
-    { transform: `translateX(${currentPosition * 100}%)` }
-  ) : (
-    { transform: `translateX(${currentPosition * - 100}%)` }
-  )
-
-  const lastRotation = currentPosition === 0 ? (
-    { transition: 'none' }
-  ) : (
-    { transition: 'transform 500ms ease-in-out' }
-  )
+  const [currentMobileImage] = useCurrentImage(array.length)
 
   return (
     <div className={`card ${mobile ? 'mobile-card' : ''}`}>
       <div className='slider-wrapper'>
-        <div className='slider' style={{ ...style, ...lastRotation }} >
-          {array.map(img => (
-            <img
-              key={crypto.randomUUID()}
-              className='portfolio-img'
-              src={img}
-              alt=''
-              width={mobile ? 160 : 500}
-              loading='lazy'
-            />
-          ))}
-        </div>
+        <LazyLoadImage
+          className='enter-image portfolio-img'
+          alt=''
+          src={array[currentMobileImage]}
+          effect='blur'
+        />
       </div>
     </div>
   )
@@ -134,22 +121,18 @@ const Card = ({ array, mobile }: { array: string[], mobile?: boolean }) => {
 //   return onMouseMove
 // }
 
-const useCurrentPosition = (length: number) => {
-  const [currentPosition, setCurrentPosition] = useState(0)
+const useCurrentImage = (length: number) => {
+  const [currentImage, setCurrentImage] = useState(0)
 
   useEffect(() => {
-    if (currentPosition === length) setCurrentPosition(0)
-
-    const time = (currentPosition === length - 1 || currentPosition === 0) ? length * 700 : length * 1400
-
     const interval = setInterval(() => {
-      setCurrentPosition(prev => prev + 1)
-    }, time)
-
+      if (currentImage === length - 1) setCurrentImage(0)
+      else { setCurrentImage(prev => prev + 1) }
+    }, 4000)
 
     return () => clearInterval(interval)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPosition])
+  }, [currentImage])
 
-  return currentPosition
+  return [currentImage]
 }
