@@ -16,7 +16,7 @@ import './Portfolio.scss'
 const Portfolio = () => {
   const { t } = useTranslation()
   const portfolioRef = useRef<HTMLDivElement>(null)
-  const { ref, inView } = useInView({ threshold: .4 })
+  const { ref, inView } = useInView({ threshold: .2 })
 
   useHashScroll(portfolioRef.current, 'portfolio', inView)
 
