@@ -39,25 +39,16 @@ const Home = () => {
           <UnderlineSvg />
         </div>
         <h2 className='home-subtitle'>{t('home.subtitle')}</h2>
-        <div className='home-buttons'>
-          {/* <Button
+        <div className='mission-action'>
+          <Button
             color='light'
             size='large'
+            to={'#contact'}
             onClick={onClick}
-          >{t('home.contact')}
+          >
+            {t('home.contact')}
           </Button>
-          <p>{t('or')}</p> */}
-          <div className='mission-action'>
-            <Button
-              color='light'
-              size='large'
-              to={'#contact'}
-              onClick={onClick}
-            >
-              {t('home.contact')}
-            </Button>
-            <HighlightArrow />
-          </div>
+          <HighlightArrow />
         </div>
 
         {theme === 'light' ? (

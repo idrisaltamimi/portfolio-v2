@@ -34,7 +34,7 @@ const useSwitchPageDirecting = () => {
   const { i18n } = useTranslation()
 
   useEffect(() => {
-    const currentLng = localStorage.getItem('lng') || 'ar'
+    const currentLng = localStorage.getItem('lng') || 'en'
 
     i18n.changeLanguage(currentLng)
 

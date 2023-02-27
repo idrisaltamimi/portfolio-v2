@@ -136,10 +136,13 @@
 // mobile cards sizes
 .mobile-card {
   max-width: 140px;
+  max-height: calc(700px / 3);
+  height: 100%;
   aspect-ratio: 3 / 5;
 
   .portfolio-img {
     max-width: 140px;
+    height: 100%;
     aspect-ratio: 3 / 5;
   }
 }
@@ -156,8 +159,13 @@
 }
 
 @media (min-width: 1100px) {
+  .card {
+    height: 300px;
+  }
+
   .portfolio-img {
     width: 500px;
+    height: 300px;
   }
 }
 

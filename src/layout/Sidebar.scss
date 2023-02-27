@@ -24,6 +24,14 @@ header {
   .nav-item-text {
     transition: background-color 200ms ease-in-out;
   }
+
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+header::-webkit-scrollbar {
+  display: none;
 }
 
 body[dir='rtl'] {

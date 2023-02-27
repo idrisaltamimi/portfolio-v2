@@ -5,7 +5,10 @@ import { mergeRefs } from 'react-merge-refs'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import 'react-lazy-load-image-component/src/effects/blur.css'
 
-import { dalleArray, dalleMobileArray, kanbanArray, kanbanArrayMobile, aqariArray, aqariArrayMobile, spaceArray, spaceArrayMobile } from '../assets/portfolio-img'
+import {
+  dalleArray, dalleMobileArray, kanbanArray, kanbanArrayMobile, aqariArray, aqariArrayMobile, spaceArray, spaceArrayMobile, movieArray,
+  movieArrayMobile
+} from '../assets/portfolio-img'
 import { CssLogo, JavascriptLogo, MongoLogo, NodeLogo, ReactLogo, TailwindLogo, TypescriptLogo } from '../assets'
 import { useHashScroll } from '../hooks'
 import './Portfolio.scss'
@@ -50,6 +53,14 @@ const Portfolio = () => {
         description={t('portfolio.spaceDescription')}
         array={spaceArray}
         arrayMobile={spaceArrayMobile}
+        arrayLogos={[<ReactLogo />, <JavascriptLogo />, <CssLogo />]}
+      />
+
+      <Project
+        title={t('portfolio.space')}
+        description={t('portfolio.spaceDescription')}
+        array={movieArray}
+        arrayMobile={movieArrayMobile}
         arrayLogos={[<ReactLogo />, <JavascriptLogo />, <CssLogo />]}
       />
     </section>

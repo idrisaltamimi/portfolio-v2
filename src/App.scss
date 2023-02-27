@@ -56,7 +56,7 @@ body[dir='ltr'] {
   &::before {
     content: '';
     position: absolute;
-    background-color: var(--clr-shadow);
+    background-color: var(--clr-bg);
   }
 
   &::after {

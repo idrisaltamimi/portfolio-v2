@@ -26,6 +26,13 @@ import spaceNavM from './space-nav-m.png'
 import spacePlanet from './space-planets.png'
 import spaceTravel from './space-travel.png'
 
+import movieHome from './movie-home.png'
+import movieHomeSearch from './movie-home-search.png'
+import movieWatch from './movie-watch.png'
+import movieHomeSearchM from './movie-home-search-m.png'
+import movieWatchEmptyM from './movie-watch-empty-m.png'
+import movieWatchM from './movie-watch-m.png'
+
 const dalleArray = [dalleHome, dalleCreate, dalleGenerate, dalleHome2]
 const dalleMobileArray = [dalleHomeM, dalleSearchM, dalleGenerateM]
 const kanbanArray = [kanbanHome, kanbanEmptyHome, kanbanDarkHome, kanbanModal]
@@ -34,6 +41,8 @@ const aqariArray = [aqariHome, aqariLatest, aqariLogin]
 const aqariArrayMobile = [aqariPostsM, aqariFormM, aqariPostM]
 const spaceArray = [spaceHome, spacePlanet, spaceTravel]
 const spaceArrayMobile = [spaceHomeM, spaceNavM]
+const movieArray = [movieHome, movieHomeSearch, movieWatch]
+const movieArrayMobile = [movieHomeSearchM, movieWatchEmptyM, movieWatchM]
 
 export {
   dalleArray,
@@ -43,5 +52,7 @@ export {
   aqariArray,
   aqariArrayMobile,
   spaceArray,
-  spaceArrayMobile
+  spaceArrayMobile,
+  movieArray,
+  movieArrayMobile,
 }

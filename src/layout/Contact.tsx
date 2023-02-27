@@ -25,7 +25,7 @@ const Contact = () => {
   const [messageError, setMessageError] = useState(false)
 
 
-  const { ref, inView } = useInView({ threshold: .6 })
+  const { ref, inView } = useInView({ threshold: .4 })
   useHashScroll(contactRef.current, 'contact', inView)
 
   const sendEmail = (e: FormEvent) => {

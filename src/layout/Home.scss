@@ -103,12 +103,13 @@ body[dir='ltr'] .home-heading svg {
 
 /* mission action */
 .mission-action {
+  justify-self: center;
   position: relative;
-  max-width: 250px;
-  width: 100%;
+  max-width: 250px !important;
+  width: 100% !important;
 
   .button {
-    width: 100%;
+    width: 100% !important;
   }
 
   svg {
