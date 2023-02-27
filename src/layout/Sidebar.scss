@@ -24,14 +24,6 @@ header {
   .nav-item-text {
     transition: background-color 200ms ease-in-out;
   }
-
-  overflow-y: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-header::-webkit-scrollbar {
-  display: none;
 }
 
 body[dir='rtl'] {
@@ -75,6 +67,14 @@ body[dir='ltr'] {
       background-color: var(--clr-dark);
     }
   }
+
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .header-section {
