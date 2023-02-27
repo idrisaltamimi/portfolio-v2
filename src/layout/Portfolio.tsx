@@ -9,14 +9,14 @@ import {
   dalleArray, dalleMobileArray, kanbanArray, kanbanArrayMobile, aqariArray, aqariArrayMobile, spaceArray, spaceArrayMobile, movieArray,
   movieArrayMobile
 } from '../assets/portfolio-img'
-import { CssLogo, JavascriptLogo, MongoLogo, NodeLogo, ReactLogo, TailwindLogo, TypescriptLogo } from '../assets'
+import { CssLogo, HtmlLogo, JavascriptLogo, MongoLogo, NodeLogo, ReactLogo, TailwindLogo, TypescriptLogo } from '../assets'
 import { useHashScroll } from '../hooks'
 import './Portfolio.scss'
 
 const Portfolio = () => {
   const { t } = useTranslation()
   const portfolioRef = useRef<HTMLDivElement>(null)
-  const { ref, inView } = useInView({ threshold: 1 })
+  const { ref, inView } = useInView({ threshold: .4 })
 
   useHashScroll(portfolioRef.current, 'portfolio', inView)
 
@@ -57,11 +57,11 @@ const Portfolio = () => {
       />
 
       <Project
-        title={t('portfolio.space')}
-        description={t('portfolio.spaceDescription')}
+        title={t('portfolio.watchlist')}
+        description={t('portfolio.watchlistDescription')}
         array={movieArray}
         arrayMobile={movieArrayMobile}
-        arrayLogos={[<ReactLogo />, <JavascriptLogo />, <CssLogo />]}
+        arrayLogos={[<HtmlLogo />, <JavascriptLogo />, <CssLogo />]}
       />
     </section>
   )

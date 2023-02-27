@@ -8,6 +8,8 @@ export const portfolioAr = {
   aqariDescription: 'عقاري لتسويق العقارات',
   space: 'سياحة الفضاء',
   spaceDescription: 'تطبيق يأخذك لرحلة إلى الفضاء الخارجي',
+  watchlist: 'قائمة مشاهدة',
+  watchlistDescription: 'قائمة مشاهدة الأفلام',
 }
 
 export const portfolioEn = {
@@ -20,4 +22,6 @@ export const portfolioEn = {
   aqariDescription: 'Aqari real estate marketing',
   space: 'Space Tourism',
   spaceDescription: 'An app that would take you to a journey to outer space',
+  watchlist: 'WatchList',
+  watchlistDescription: 'Movies watchlist app',
 }
